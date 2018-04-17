@@ -1,0 +1,96 @@
+---
+title       : Slidify 
+subtitle    : Introductory Course
+author      : Gregorio Ambrosio
+job         : Apr. 17 2018
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+logo        : goyologo.png # Graphic files will be in ~/myDeck/assets/img
+biglogo     : goyologo.png
+license     : by-nc-sa
+assets      : {assets: ../../assets} # Add an assets directory
+ext_widgets : {rCharts: [libraries/nvd3, libraries/leaflet, libraries/dygraphs]}
+---
+
+## What is Slidify
+
+Slidify is a tool that makes it easy to create, customize and publish, reproducible HTML5 slide decks using R Markdown.
+
+Slidify helps create, customize and share, elegant, dynamic and interactive HTML5 documents using R Markdown.
+
+---
+
+## Installation
+
+Obviously you need a R environment. For that, install [R](https://www.r-project.org/) and [RStudio](https://www.rstudio.com/)
+
+Slidify is not on CRAN and needs to be installed from github using the devtools package. I would recommend installing the dev version of the package.
+
+```{r, eval=FALSE}
+pkgs <- c("slidify", "slidifyLibraries", "rCharts")
+devtools::install_github(pkgs, "ramnathv")
+```
+
+slidify.github.io recommends installing the `dev` version of the package
+
+```{r, eval=FALSE}
+install_github(pkgs, 'ramnathv', ref = 'dev')
+```
+
+Now you are ready to create your first slidify presentation.
+
+--- 
+
+## Create a new Deck ##
+
+Each presentation is called a 'deck'
+
+Open RStudio
+
+```
+setwd("~/Git")
+
+require(slidify)
+author("myDeck") # It creates ~/Git/myDeck
+```
+
+Create a new Project from existing directory.
+
+---
+
+## Tutorials
+
+1. [Introduction](http://slidify.github.io/workshops/tutorials/01)
+2. [Frameworks](http://slidify.github.io/workshops/tutorials/02)
+3. [Layouts](http://slidify.github.io/workshops/tutorials/03)
+4. [Widgets](http://slidify.github.io/workshops/tutorials/04)
+
+--- .class #id
+
+## Read-And-Delete
+
+1. Edit YAML front matter
+2. Write using R Markdown
+3. Use an empty line followed by three dashes to separate slides!
+
+--- 
+
+# Heading 1 #
+
+## Heading 2 ##
+
+### Heading 3 ###
+
+#### Heading 4 ####
+
+Body
+
+ 
+
+
+
+
