@@ -1,6 +1,6 @@
 ---
 title       : Slidify 
-subtitle    : Introductory Course
+subtitle    : A Tutorial
 author      : Gregorio Ambrosio
 job         : Apr. 17 2018
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
