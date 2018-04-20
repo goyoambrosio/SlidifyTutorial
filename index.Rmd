@@ -18,9 +18,11 @@ ext_widgets : {rCharts: [libraries/nvd3, libraries/leaflet, libraries/dygraphs]}
 
 ## What is Slidify
 
-Slidify is a tool that makes it easy to create, customize and publish, reproducible HTML5 slide decks using R Markdown.
+Slidify is a tool that makes it easy to create, customize and publish,
+reproducible HTML5 slide decks using R Markdown.
 
-Slidify helps create, customize and share, elegant, dynamic and interactive HTML5 documents using R Markdown.
+Slidify helps create, customize and share, elegant, dynamic and interactive
+HTML5 documents using R Markdown.
 
 ---
 
@@ -45,22 +47,93 @@ Now you are ready to create your first slidify presentation.
 
 --- 
 
-## Create a new Deck ##
+## Create a new Deck
 
-Each presentation is called a 'deck'
+Each presentation is called a 'deck'. To create a new deck open RStudio, set
+your working directory and use the `author` command.
 
-Open RStudio
-
-```
-setwd("~/Git")
-
+```{r, eval=FALSE}
+setwd("/path/to/")
 require(slidify)
-author("myDeck") # It creates ~/Git/myDeck
+author("myDeck")
 ```
 
-Create a new Project from existing directory.
+`/path/to/myDeck` is created.
+
+Create a R Project from Existing Directory
+
+```
+File -> New Project -> Existing Directory -> /path/to/myDeck -> Create Project
+```
+
+A file called `myDeck.Rproj` will be created under `/path/to/myDeck`.
 
 ---
+
+## Integration with Git ##
+
+If git is installed, then the `author` command also initializes a git repository,
+switchs to a `gh-pages` branch and commit all changes.
+
+Before uploading your deck to your favourite Git cloud provider create
+`.gitignore` to avoid version control for non essential files.
+
+```{sh, eval=FALSE}
+cd /path/to/myDeck
+touch .gitignore
+vim .gitignore
+```
+
+Add your ignored extensions
+
+```{sh, eval=FALSE}
+# RStudio files #
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+# ...
+```
+
+---
+
+## Upload the new repository (Bitbucket or GitHub)
+
+Create an empty Repository, e.g. `myDeck` in BitBucket or GitHub. With an empty
+repository a default branch called `master` won't be created. Then `push` the
+local `myDeck` repository to the remote `myDeck` repo. Note that a new branch
+called `gh-pages` has been created.
+
+```sh
+cd /path/to/myDeck
+git add .
+git commit -am "Initial commit"
+git remote add origin_github https://github.com/username/myDeck.git
+git remote add origin_bitbucket https://username@bitbucket.org/username/myDeck.git
+git push -u origin[_github|bitbucket] --all
+git push -u origin[_github|bitbucket] --tags
+```
+
+Now you can work with your new repository as usual
+
+---
+
+## Cloning your repo
+
+To clone the repo on your machine take in account that you'll need to clone `gh-pages` branch
+
+```shell-script
+git clone -b gh-pages https://github.com/username/myDeck.git
+```
+
+or
+
+```shell-script
+git clone -b gh-page https://username@bitbucket.org/username/myDeck.git
+```
+
+---
+
 
 ## Tutorials
 
