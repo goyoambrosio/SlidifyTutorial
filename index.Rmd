@@ -54,6 +54,7 @@ Slidify also uses `knitr` but renders HTML pages by itself without using `pandoc
 References:
 
 [Comparisons between ioslides and Slidify in R Markdown Presentation](http://yintingchou.com/others/2017/05/26/ioslides-slidy.html)
+
 [Introduction to Presentations in Rmarkdown](http://data-analytics.net/cep/Schedule_files/presentations_demo.html)
 
 ---
@@ -321,7 +322,7 @@ by
 
 ---
 
-## presenter display and presenter notes
+## Presenter display and presenter notes
 
 You can define speaker notes within any slide by adding the line `*** =pnotes`
 before it. Here is an example of a slide with speaker notes.
@@ -336,10 +337,15 @@ You can also include an image in the presenter display using markdown syntax,
 e.g.
 `![](http://codingsomething.files.wordpress.com/2013/02/screenshot.png?w=652)`
 
+    *** =pnotes
+    Presenter notes
+    ![](http://codingsomething.files.wordpress.com/2013/02/screenshot.png?w=652)
+
+
+
 *** =pnotes
 
-Presenter notes
-
+Presenter notes  
 ![](http://codingsomething.files.wordpress.com/2013/02/screenshot.png?w=652)
 
 ---
