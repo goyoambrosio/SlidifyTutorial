@@ -16,6 +16,48 @@ assets      : {assets: ../../assets} # Add an assets directory
 ext_widgets : {rCharts: [libraries/nvd3, libraries/leaflet, libraries/dygraphs]}
 ---
 
+## R presentations
+
+R presentations are presentations coded as Rmarkdown and then translated to HTML
+using the R programming language framework.
+
+Rmarkdown is a markdown based R syntax that helps make documents in many different formats.
+
+There are many different ways to make *r presentations* in RStudio (`oslides`, `Slidy`, `Beamer`, ...)
+
+Slidify exists as a package with a huge online community and popularity.
+
+Slidify has the most options and flexibility but you mustn't to use it until you
+are more comfortable with R packages and general syntax.
+
+*** =pnotes
+
+R presentations are presentations coded as HTML created with the R programming language framework.
+
+Rmarkdown is a markdown based R syntax that helps make documents in many different formats.
+
+In RStudio, you simply create a new rmarkdown file, write your text/code, and
+runs `knitr` and `pandoc` to turn your raw text into a complete HTML, named *r
+presentations*, or PDF document.
+
+There are many different ways to make *r presentations* in RStudio but three main
+choices: `ioslides`, `Slidy`, and `Beamer`.
+
+On the other hand, Slidify exists as a package with a huge online community and popularity.
+
+Slidify has the most options and flexibility. This package is clearly aimed at
+the intermediate to advanced R community and you mustn't to use slidify until
+you are more comfortable with R packages and general syntax.
+
+Slidify also uses `knitr` but renders HTML pages by itself without using `pandoc`
+
+References:
+
+[Comparisons between ioslides and Slidify in R Markdown Presentation](http://yintingchou.com/others/2017/05/26/ioslides-slidy.html)
+[Introduction to Presentations in Rmarkdown](http://data-analytics.net/cep/Schedule_files/presentations_demo.html)
+
+---
+
 ## What is Slidify
 
 Slidify is a tool that makes it easy to create, customize and publish,
@@ -71,7 +113,7 @@ A file called `myDeck.Rproj` will be created under `/path/to/myDeck`.
 
 ---
 
-## Integration with Git ##
+## Integration with Git 
 
 If git is installed, then the `author` command also initializes a git repository,
 switchs to a `gh-pages` branch and commit all changes.
@@ -79,7 +121,7 @@ switchs to a `gh-pages` branch and commit all changes.
 Before uploading your deck to your favourite Git cloud provider create
 `.gitignore` to avoid version control for non essential files.
 
-```{shell engine=bash,eval=FALSE}
+```shell
 $ cd /path/to/myDeck
 $ touch .gitignore
 $ vim .gitignore
@@ -87,7 +129,7 @@ $ vim .gitignore
 
 Add your ignored extensions
 
-```{bash, eval=FALSE}
+```bash
 # RStudio files #
 .Rproj.user
 .Rhistory
@@ -105,7 +147,7 @@ repository a default branch called `master` won't be created. Then `push` the
 local `myDeck` repository to the remote `myDeck` repo. Note that a new branch
 called `gh-pages` has been created.
 
-```{shell engine=bash,eval=FALSE}
+```shell
 $ cd /path/to/myDeck
 $ git add .
 $ git commit -am "Initial commit"
@@ -123,13 +165,13 @@ Now you can work with your new repository as usual
 
 To clone the repo on your machine take in account that you'll need to clone `gh-pages` branch
 
-```{shell,eval=FALSE}
+```shell
 git clone -b gh-pages https://github.com/username/myDeck.git
 ```
 
 or
 
-```{shell,eval=FALSE}
+```shell,eval=FALSE}
 git clone -b gh-page https://username@bitbucket.org/username/myDeck.git
 ```
 
@@ -200,7 +242,46 @@ browseURL("index.html")
 
 ---
 
+## Code hightlighting
+
+We want that our code blocks look good. Syntax highlighting let us to make code clear and understable.
+
+
+Usage:
+
+```markdown
+
+    ```<language>
+    ... code
+    ```
+
+```
+
+knitr converts `{<language_name> ...}` to `<language_name>` but the language
+name in kinitr corresponds to the engine that executes the code but does not
+have to correspond to the name used by hightlight.js
+
+
+---
+
 ## Using Hightlight.js
+
+Highlight.js is a syntax highlighter written in JavaScript. It works with pretty
+much any markup, doesn’t depend on any framework and has automatic language
+detection.
+
+Main features
+
+- 176 languages and 79 styles
+- automatic language detection
+- multi-language code highlighting
+- available for node.js
+- works with any markup
+- compatible with any js framework
+
+[hightlight.js demo](https://highlightjs.org/static/demo/)
+[CSS classes reference](http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html)
+
 
 ---
 
@@ -215,11 +296,54 @@ be extracted and executed, and the program output will be displayed together
 with the original text in the output document.
 
 knitr support a lot of computer languages that implemented in [knitr language
-engines](https://yihui.name/knitr/demo/engines/).
-
-
+engines](https://yihui.name/knitr/demo/engines/**.
 
 ---
+
+## Comment out a slide
+
+Change 
+
+    ---
+    Slide 1 content
+    ---
+    Slide 2 content
+    ---
+
+by
+
+    ---
+    <!--
+    Slide 1 content
+    --!>
+    Slide 2 content
+    ---
+
+---
+
+## presenter display and presenter notes
+
+You can define speaker notes within any slide by adding the line `*** =pnotes`
+before it. Here is an example of a slide with speaker notes.
+
+You can view speaker notes by pressing the key `p` which acts as a toggle and
+automatically opens the presenter view. 
+
+For `io2012`, you need to add `?presentme=true` to the presentation url, which
+will then open the presenter view.
+
+You can also include an image in the presenter display using markdown syntax,
+e.g.
+`![](http://codingsomething.files.wordpress.com/2013/02/screenshot.png?w=652)`
+
+*** =pnotes
+
+Presenter notes
+
+![](http://codingsomething.files.wordpress.com/2013/02/screenshot.png?w=652)
+
+---
+
 
 ## Tutorials
 
