@@ -301,6 +301,34 @@ engines](https://yihui.name/knitr/demo/engines/**.
 
 ---
 
+## Running bash scripts
+
+Run bash scripts
+
+    ```{r,eval=FALSE}
+    # should exist
+    Sys.which('bash')
+    Sys.which('sh')
+    ```
+
+Does `bash` work?
+
+    ```{r test-bash, engine='bash',eval=FALSE}
+    echo hello world
+    echo 'a b c' | sed 's/ /\|/g'
+    # number of lines
+    awk 'END{print NR;}' 027-engine-bash.Rmd
+    ```
+
+How about `sh`?
+
+    ```{r test-sh, engine='sh',eval=FALSE}
+    # run wc on all engine examples
+    ls | grep engine | head -n8 | xargs wc
+    ```
+
+---
+
 ## Comment out a slide
 
 Change 
