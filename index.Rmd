@@ -28,9 +28,11 @@ HTML5 documents using R Markdown.
 
 ## Installation
 
-Obviously you need a R environment. For that, install [R](https://www.r-project.org/) and [RStudio](https://www.rstudio.com/)
+Obviously you need a R environment. For that, install
+[R](https://www.r-project.org/) and [RStudio](https://www.rstudio.com/)
 
-Slidify is not on CRAN and needs to be installed from github using the devtools package. I would recommend installing the dev version of the package.
+Slidify is not on CRAN and needs to be installed from github using the devtools
+package. I would recommend installing the dev version of the package.
 
 ```{r, eval=FALSE}
 pkgs <- c("slidify", "slidifyLibraries", "rCharts")
@@ -46,7 +48,6 @@ install_github(pkgs, 'ramnathv', ref = 'dev')
 Now you are ready to create your first slidify presentation.
 
 --- 
-
 ## Create a new Deck
 
 Each presentation is called a 'deck'. To create a new deck open RStudio, set
@@ -78,15 +79,15 @@ switchs to a `gh-pages` branch and commit all changes.
 Before uploading your deck to your favourite Git cloud provider create
 `.gitignore` to avoid version control for non essential files.
 
-```{sh, eval=FALSE}
-cd /path/to/myDeck
-touch .gitignore
-vim .gitignore
+```{shell engine=bash,eval=FALSE}
+$ cd /path/to/myDeck
+$ touch .gitignore
+$ vim .gitignore
 ```
 
 Add your ignored extensions
 
-```{sh, eval=FALSE}
+```{bash, eval=FALSE}
 # RStudio files #
 .Rproj.user
 .Rhistory
@@ -104,14 +105,14 @@ repository a default branch called `master` won't be created. Then `push` the
 local `myDeck` repository to the remote `myDeck` repo. Note that a new branch
 called `gh-pages` has been created.
 
-```sh
-cd /path/to/myDeck
-git add .
-git commit -am "Initial commit"
-git remote add origin_github https://github.com/username/myDeck.git
-git remote add origin_bitbucket https://username@bitbucket.org/username/myDeck.git
-git push -u origin[_github|bitbucket] --all
-git push -u origin[_github|bitbucket] --tags
+```{shell engine=bash,eval=FALSE}
+$ cd /path/to/myDeck
+$ git add .
+$ git commit -am "Initial commit"
+$ git remote add origin_github https://github.com/username/myDeck.git
+$ git remote add origin_bitbucket https://username@bitbucket.org/username/myDeck.git
+$ git push -u origin_[github|bitbucket] --all
+$ git push -u origin_[github|bitbucket] --tags
 ```
 
 Now you can work with your new repository as usual
@@ -122,18 +123,103 @@ Now you can work with your new repository as usual
 
 To clone the repo on your machine take in account that you'll need to clone `gh-pages` branch
 
-```shell-script
+```{shell,eval=FALSE}
 git clone -b gh-pages https://github.com/username/myDeck.git
 ```
 
 or
 
-```shell-script
+```{shell,eval=FALSE}
 git clone -b gh-page https://username@bitbucket.org/username/myDeck.git
 ```
 
 ---
 
+## Editing index.Rmd
+
+index.Rmd is the only file you need to edit and for that you have two ways:
+
+- Using RStudio opening the project file, e.g. `/path/to/myDeck/myDeck.Rproj`
+- Using Emacs with ESS/Polymode major mode.
+
+To take advantage of their editing capabilities RStudio and Emacs can be used simultaneously.
+
+Changes made to the edited files will be updated in real time both in Emacs and RStudio.
+
+--- 
+
+## Using Emacs
+
+For R files editing in Emacs you'll need to install ESS & polymode major modes.
+
+Previously is recommended [spacemacs](http://spacemacs.org/) installation over Emacs.
+
+Spacemacs is an open source Emacs distribution, aimed at providing a bridge
+between Emacs and Vim.
+
+Emacs Speaks Statistics (ESS) is an add-on package for Emacs. It is designed to
+support editing of scripts and interaction with various statistical analysis
+programs such as R.
+
+Polymode is an emacs package that offers generic support for multiple major
+modes inside a single emacs buffer. It is necessary to allow the mix of modes
+present in Rmd files, specially `markdown` and `R` modes but also other major
+modes.
+
+---
+
+## Configuring Emacs for Rmd files editing.
+
+Edit `.spacemacs`
+
+1. Activate `ess` configuration layer  
+```
+dotspacemacs-configuration-layers
+'(ess)
+```
+
+2. Add `polymode` package as additional package  
+```
+dotspacemacs-additional-packages '(polymode)
+```
+
+3. Add extension associations  
+```
+dotspacemacs/user-config ()
+(add-to-list 'auto-mode-alist '("\\.Rmd$" . poly-markdown+r-mode))
+```
+
+---
+
+## Slidify it !
+
+```{r, eval=FALSE}
+slidify("index.Rmd")
+browseURL("index.html")
+```
+
+---
+
+## Using Hightlight.js
+
+---
+
+## Knitr
+
+The [knitr](https://yihui.name/knitr/demo/engines/) package was designed based
+on the idea of “Literate Programming” (Knuth 1984), which allows you to
+intermingle program code with text in a source document.
+
+When knitr compiles a document, the program code (in code chunks) will
+be extracted and executed, and the program output will be displayed together
+with the original text in the output document.
+
+knitr support a lot of computer languages that implemented in [knitr language
+engines](https://yihui.name/knitr/demo/engines/).
+
+
+
+---
 
 ## Tutorials
 
@@ -149,21 +235,4 @@ git clone -b gh-page https://username@bitbucket.org/username/myDeck.git
 1. Edit YAML front matter
 2. Write using R Markdown
 3. Use an empty line followed by three dashes to separate slides!
-
---- 
-
-# Heading 1 #
-
-## Heading 2 ##
-
-### Heading 3 ###
-
-#### Heading 4 ####
-
-Body
-
- 
-
-
-
 
