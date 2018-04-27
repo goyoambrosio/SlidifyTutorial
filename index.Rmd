@@ -459,16 +459,17 @@ Your first two slides are made for you under the `YAML`:
 2. Write using R Markdown
 3. Use an empty line followed by three dashes to separate slides!
 
---- .class #id 
+- - - .class #id 
 
 ## Slide 2
-```
+
 
 - Whatever you put after `##` will be the title of the slide.
 - `---` marks the end of the slide.
 - `.class #id` are `CSS` attributes you can use to customize the slide.
 - Whatever you put between `##` and `---` is up to you! As long as it is valid R Markdown or `HTML`.
 
+```
 
 ---&twocol w1:40% w2:60%
 
