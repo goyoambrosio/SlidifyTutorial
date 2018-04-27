@@ -1,20 +1,35 @@
 ---
 title       : Slidify 
-subtitle    : A Tutorial
+subtitle    : A little bit more sysadmin oriented Tutorial
 author      : Gregorio Ambrosio
 job         : Apr. 17 2018
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : zenburn
-widgets     : bootstrap   # {mathjax, quiz, bootstrap}
+hitheme     : zenburn       # {zenburn, tomorrow, solarized-dark, ...}
+widgets     : bootstrap     # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
-logo        : goyologo.png # Graphic files will be in ~/myDeck/assets/img
+logo        : goyologo.png  # Graphic files will be in ~/myDeck/assets/img
 biglogo     : goyologo.png
 license     : by-nc-sa
-assets      : {assets: ../../assets} # Add an assets directory
+assets      : {assets: ../../assets}       # Add an assets directory
+libraries   : {libraries: ../../libraries} # Add a libraries directory
 ext_widgets : {rCharts: [libraries/nvd3, libraries/leaflet, libraries/dygraphs]}
 ---
+
+```{r,echo=FALSE}
+library('knitr')
+knit_hooks$set(
+  prompt = function(before, options, envir) {
+    options(prompt = if (options$engine %in% c('sh','bash')) '$ ' else '> ')
+})
+```
+<!--
+If you want to enable automatic prompt generation use
+{bash ,prompt=TRUE, eval=FALSE}
+{r, prompt=TRUE, eval=FALSE}
+-->
+
 
 ## R presentations
 
@@ -72,21 +87,45 @@ several javascript libaries
 
 It allows embedded code chunks and mathematical formulas
 
-You can view sllidify presentations with any web browser and share them easily
+You can view slidify presentations with any web browser and share them easily
 on Github, Dropbox, or your own website
 
---- 
+--- .segue bg:grey
 
+# Set up your workspace
+
+---
 
 ## Things you need 
 
 To work with slidify you need the right environment:
 
-- A language and environment for statistical computing and graphics: [R](https://www.r-project.org/)
-- An integrated development environment (IDE) for R: [RStudio](https://www.rstudio.com/) or Emacs
-- A way to install R packages under development: [devtools](https://github.com/r-lib/devtools)
+- A language and environment for statistical computing and graphics:
+  [R](https://www.r-project.org/)
+- An integrated development environment (IDE) for R:
+  [RStudio](https://www.rstudio.com/)
+- Optionally a powerful more-than-an-editor like
+  [Emacs](https://www.gnu.org/software/emacs/) customized with
+  [Spacemacs](http://spacemacs.org/), [ESS](https://ess.r-project.org/) and
+  [Polymode](https://github.com/vspinu/polymode).
+- A way to install R packages under development (i.e. slidify):
+  [devtools](https://github.com/r-lib/devtools)
 
 Preferably in Linux!
+
+*** =pnotes
+
+[Spacemacs](http://spacemacs.org/) is an open source Emacs distribution, aimed
+at providing a bridge between Emacs and Vim.
+
+[ESS](https://ess.r-project.org/) (Emacs Speaks Statistics) is an add-on package
+for Emacs. It is designed to support editing of scripts and interaction with
+various statistical analysis programs such as R.
+
+[Polymode](https://github.com/vspinu/polymode) is an emacs package that offers
+generic support for multiple major modes inside a single emacs buffer. It is
+necessary to allow the mix of modes present in Rmd files, specially `markdown`
+and `R` modes but also other major modes.
 
 ---
 
@@ -136,12 +175,64 @@ sudo apt install -f
 Or click deb file through the file manager. Ubuntu will install it and its dependencies.
 
 ---
+
+## How to install Emacs and Spacemacs
+
+As usual, run this command
+
+```bash
+sudo apt install emacs
+```
+
+Download [SourceCode Pro
+font](https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.tar.gz),
+uncompress and install. (it takes some seconds ... don't suspect, it's working)
+
+```bash
+sudo mv ~/Downloads/source-code-pro-2.030R-ro-1.050R-it/OTF /usr/share/fonts/opentype
+sudo fc-cache -f
+```
+
+To install Spacemacs type
+
+```bash
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+```
+
+The first time you run Spacemacs you must to answer three initial configuratation questions.
+
+
+---
+
+## How to install ESS and polymode major modes for Emacs
+
+Edit `.spacemacs`, usually under your home directory.
+
+1. Activate `ess` configuration layer  
+```
+dotspacemacs-configuration-layers
+'(ess)
+```
+
+2. Add `polymode` package as additional package  
+```
+dotspacemacs-additional-packages '(polymode)
+```
+
+3. Add extension associations  
+```
+dotspacemacs/user-config ()
+(add-to-list 'auto-mode-alist '("\\.Rmd$" . poly-markdown+r-mode))
+```
+
+---
+
 ## How to install devtools
 
 Previously you need to install some libraries in your system:
 
-```sh
-$ sudo apt-get install build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev
+```{bash,eval=FALSE,prompt=TRUE}
+sudo apt-get install build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev
 ```
 
 Now run R as `sudo` and install the package
@@ -164,14 +255,14 @@ Slidify is not on CRAN and needs to be installed from github using the `devtools
 package. 
 
 ```r
-> pkgs <- c("slidify", "slidifyLibraries", "rCharts")
-> devtools::install_github(pkgs, "ramnathv")
+pkgs <- c("slidify", "slidifyLibraries", "rCharts")
+devtools::install_github(pkgs, "ramnathv")
 ```
 
-http://slidify.github.io recommends installing the `dev` version of the package
+As an alternative http://slidify.github.io recommends installing the `dev` version of the package
 
 ```r
-> install_github(pkgs, 'ramnathv', ref = 'dev')
+install_github(pkgs, 'ramnathv', ref = 'dev')
 ```
 
 Now you are ready to create your first slidify presentation.
@@ -180,7 +271,7 @@ Now you are ready to create your first slidify presentation.
 
 ## Create a new Deck
 
-Each presentation is called a 'deck'. To create a new deck open RStudio, set
+Each presentation is called a 'deck'. To create a new deck open R, set
 your working directory and use the `author` command.
 
 ```r
@@ -220,9 +311,9 @@ Before uploading your deck to your favourite Git cloud provider create
 `.gitignore` to avoid version control for non essential files.
 
 ```sh
-$ cd /path/to/myDeck
-$ touch .gitignore
-$ vim .gitignore
+cd /path/to/myDeck
+touch .gitignore
+vim .gitignore
 ```
 
 Add your ignored extensions
@@ -246,13 +337,13 @@ local `myDeck` repository to the remote `myDeck` repo. Note that a new branch
 called `gh-pages` has been created.
 
 ```sh
-$ cd /path/to/myDeck
-$ git add .
-$ git commit -am "Initial commit"
-$ git remote add origin_github https://github.com/username/myDeck.git
-$ git remote add origin_bitbucket https://username@bitbucket.org/username/myDeck.git
-$ git push -u origin_[github|bitbucket] --all
-$ git push -u origin_[github|bitbucket] --tags
+cd /path/to/myDeck
+git add .
+git commit -am "Initial commit"
+git remote add origin_github https://github.com/username/myDeck.git
+git remote add origin_bitbucket https://username@bitbucket.org/username/myDeck.git
+git push -u origin_[github|bitbucket] --all
+git push -u origin_[github|bitbucket] --tags
 ```
 
 Now you can work with your new repository as usual
@@ -265,7 +356,7 @@ Now you can work with your new repository as usual
 To clone the repo on your machine take in account that you'll need to clone `gh-pages` branch
 
 ```sh
-$ git clone -b gh-pages https://github.com/username/myDeck.git
+git clone -b gh-pages https://github.com/username/myDeck.git
 ```
 
 or
@@ -276,7 +367,7 @@ git clone -b gh-page https://username@bitbucket.org/username/myDeck.git
 
 ---
 
-## Editing index.Rmd
+## Editing with Emacs and RStudio
 
 index.Rmd is the only file you need to edit and for that you have two ways:
 
@@ -292,65 +383,96 @@ Changes made to the edited files will be updated in real time both in Emacs and 
 
 --- 
 
-## Using Emacs
-
-For R files editing in Emacs you'll need to install ESS & polymode major modes.
-
-Previously is recommended [spacemacs](http://spacemacs.org/) installation over Emacs.
-
-Spacemacs is an open source Emacs distribution, aimed at providing a bridge
-between Emacs and Vim.
-
-Emacs Speaks Statistics (ESS) is an add-on package for Emacs. It is designed to
-support editing of scripts and interaction with various statistical analysis
-programs such as R.
-
-Polymode is an emacs package that offers generic support for multiple major
-modes inside a single emacs buffer. It is necessary to allow the mix of modes
-present in Rmd files, specially `markdown` and `R` modes but also other major
-modes.
-
----
-
-## Configuring Emacs for Rmd files editing.
-
-Edit `.spacemacs`
-
-1. Activate `ess` configuration layer  
-```
-dotspacemacs-configuration-layers
-'(ess)
-```
-
-2. Add `polymode` package as additional package  
-```
-dotspacemacs-additional-packages '(polymode)
-```
-
-3. Add extension associations  
-```
-dotspacemacs/user-config ()
-(add-to-list 'auto-mode-alist '("\\.Rmd$" . poly-markdown+r-mode))
-```
-
----
 
 ## Slidify it !
 
-```{r, eval=FALSE}
+```r
 slidify("index.Rmd")
 browseURL("index.html")
 ```
 
+--- .segue bg:grey
+
+# Edit slides
+
 ---
 
-## Customizing or using Slidify
+## index.Rmd = YAML + R Markdown
 
-Text
+index.Rmd is the R Markdown document which you will use to compose the content of your presentation.
 
---- &twocol w1:40% w2:60%
+It's composed of a YAML section and a body section.
 
-## Two Column Layout ##
+[YAML metadata](https://github.com/ramnathv/slidify/wiki/Page-Properties)
+includes the `title`, `subtitle`, `author`, and `job` of the author. Also
+includes what slide `framework` you wish to use, which code `highlighter` you
+wish to use, and any `widgets` you want to include.
+
+In addition it can include other fields like a `logo` to appear in your title
+slide under logo, the path to your `assets` folder and the paths to any other
+folders you may be using under url, and the specific theme for your code
+highlighter of choice under `hitheme`.
+
+Under YAML you can include your slides just using R Markdown to write them.
+
+[R Markdown](https://rmarkdown.rstudio.com/) is a file format for making dynamic
+documents with R. An R Markdown document is written in
+[markdown](https://en.wikipedia.org/wiki/Markdown) and contains chunks of
+embedded R (and other languages) code.
+
+---
+
+## How YAML looks
+
+```YAML
+---
+title       : Slidify 
+subtitle    : A little bit more sysadmin oriented Tutorial
+author      : Gregorio Ambrosio
+job         : Apr. 17 2018
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : zenburn       # {zenburn, tomorrow, solarized-dark, ...}
+widgets     : bootstrap     # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+logo        : goyologo.png  # Graphic files will be in ~/myDeck/assets/img
+biglogo     : goyologo.png
+license     : by-nc-sa
+assets      : {assets: ../../assets}       # Add an assets directory
+libraries   : {libraries: ../../libraries} # Add a libraries directory
+ext_widgets : {rCharts: [libraries/nvd3, libraries/leaflet, libraries/dygraphs]}
+---
+```
+
+---
+
+## Slides
+
+
+Your first two slides are made for you under the `YAML`:
+
+```Rmd
+## Read-And-Delete
+
+1. Edit YAML front matter
+2. Write using R Markdown
+3. Use an empty line followed by three dashes to separate slides!
+
+--- .class #id 
+
+## Slide 2
+```
+
+- Whatever you put after `##` will be the title of the slide.
+- `---` marks the end of the slide.
+- `.class #id` are `CSS` attributes you can use to customize the slide.
+- Whatever you put between `##` and `---` is up to you! As long as it is valid R Markdown or `HTML`.
+
+
+---&twocol w1:40% w2:60%
+
+## Two Column Layout
 
 This slide has two columns
     
@@ -372,21 +494,15 @@ This slide has two columns
 
 We want that our code blocks look good. Syntax highlighting let us to make code clear and understable.
 
-
 Usage:
 
-```markdown
-
-    ```<language>
-    ... code
-    ```
-
-```
+\`\`\`<language>
+... code
+\`\`\`
 
 knitr converts `{<language_name> ...}` to `<language_name>` but the language
 name in kinitr corresponds to the engine that executes the code but does not
 have to correspond to the name used by hightlight.js
-
 
 ---
 
@@ -469,7 +585,7 @@ by
     ---
     <!--
     Slide 1 content
-    --!>
+    -->
     Slide 2 content
     ---
 
