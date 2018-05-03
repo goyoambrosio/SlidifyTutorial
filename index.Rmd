@@ -64,7 +64,8 @@ Slidify has the most options and flexibility. This package is clearly aimed at
 the intermediate to advanced R community and you mustn't to use slidify until
 you are more comfortable with R packages and general syntax.
 
-Slidify also uses `knitr` but renders HTML pages by itself without using `pandoc`
+Slidify also uses `knitr` but renders HTML pages using [Whisker](Slidify uses
+[whisker](https://github.com/edwindj/whisker)
 
 References:
 
