@@ -90,6 +90,17 @@ It allows embedded code chunks and mathematical formulas
 You can view slidify presentations with any web browser and share them easily
 on Github, Dropbox, or your own website
 
+*** =pnotes
+
+Slidify uses [whisker](https://github.com/edwindj/whisker) to render the final
+html by passing the parsed data to the layout file.
+
+Whisker is a [{{Mustache}}](http://mustache.github.io/) implementation in R
+confirming to the Mustache specification. 
+
+Mustache is a logicless templating language, meaning that no programming source
+code can be used in your templates.
+
 --- .segue bg:grey
 
 # Set up your workspace
@@ -418,7 +429,11 @@ Under YAML you can include your slides just using R Markdown to write them.
 [R Markdown](https://rmarkdown.rstudio.com/) is a file format for making dynamic
 documents with R. An R Markdown document is written in
 [markdown](https://en.wikipedia.org/wiki/Markdown) and contains chunks of
-embedded R (and other languages) code.
+embedded R (and other languages** code.
+
+*** =pnotes
+
+YAML is a superset of JSON.
 
 ---
 
@@ -449,27 +464,60 @@ ext_widgets : {rCharts: [libraries/nvd3, libraries/leaflet, libraries/dygraphs]}
 
 ## Slides
 
-
-Your first two slides are made for you under the `YAML`:
+Your first slide begins under YAML and looks like this:
 
 ```Rmd
-## Read-And-Delete
+--- .class #id
 
-1. Edit YAML front matter
-2. Write using R Markdown
-3. Use an empty line followed by three dashes to separate slides!
-
-- - - .class #id 
-
-## Slide 2
-
+## Slide Title
 
 - Whatever you put after `##` will be the title of the slide.
-- `---` marks the end of the slide.
+- Each slide needs to be preceeded by an empty line followed by `---`
+  this denotes the beginning of a new slide and the end of the previous slide.
 - `.class #id` are `CSS` attributes you can use to customize the slide.
-- Whatever you put between `##` and `---` is up to you! As long as it is valid R Markdown or `HTML`.
+- Whatever you put between `##` and `---` is up to you! As long as it is
+  valid R Markdown or `HTML`.
 
 ```
+
+---
+
+## Slide customization
+
+Slide attributes are valid YAML and are written after `---`
+
+```
+.<class_name> = class:<class_name>
+#<id_value> = id:<id_value>
+```
+
+e.g. Next three lines are equivalent
+```
+.segue #myId bg:blue 
+class:segue id:myId bg:blue
+{class: segue, id: myId, bg: blue}
+```
+
+For clarity we will use the third option
+
+---
+
+## Slide attributes
+
+| VARIABLE       | DESCRIPTION                           |
+|----------------|---------------------------------------|
+| slide.title    | The title of the slide with no markup |
+| slide.header   | The title of the slide with markup    |
+| slide.level    | The title header level (h1 - h6)      |
+| slide.content  | The contents of the slide sans header |
+| slide.html     | The contents of the slide with header |
+| slide.num      | The number of the slide               |
+| slide.id       | The id assigned to the slide          |
+| slide.class    | The class assigned to the slide       |
+| slide.bg       | The background assigned to the slide  |
+| slide.myblock  | The slide block named myblock         |
+| slide.blocks   | The slide blocks which are not named  |
+| slide.rendered | he rendered slide                     |
 
 ---&twocol w1:40% w2:60%
 
@@ -571,27 +619,6 @@ How about `sh`?
 
 ---
 
-## Comment out a slide
-
-Change 
-
-    ---
-    Slide 1 content
-    ---
-    Slide 2 content
-    ---
-
-by
-
-    ---
-    <!--
-    Slide 1 content
-    -->
-    Slide 2 content
-    ---
-
----
-
 ## Presenter display and presenter notes
 
 You can define speaker notes within any slide by adding the line `*** =pnotes`
@@ -620,6 +647,27 @@ Presenter notes
 
 ---
 
+
+## Comment out a slide
+
+Change 
+
+    ---
+    Slide 1 content
+    ---
+    Slide 2 content
+    ---
+
+by
+
+    ---
+    <!--
+    Slide 1 content
+    -->
+    Slide 2 content
+    ---
+
+---
 
 ## Tutorials
 
