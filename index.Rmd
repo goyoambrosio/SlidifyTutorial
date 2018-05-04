@@ -104,7 +104,7 @@ code can be used in your templates.
 
 --- .segue bg:grey
 
-# Set up your workspace
+## Set up your workspace
 
 ---
 
@@ -405,7 +405,7 @@ browseURL("index.html")
 
 --- .segue bg:grey
 
-# Edit slides
+## Edit slides
 
 ---
 
@@ -440,26 +440,25 @@ YAML is a superset of JSON.
 
 ## How YAML looks
 
-```YAML
----
-title       : Slidify 
-subtitle    : A little bit more sysadmin oriented Tutorial
-author      : Gregorio Ambrosio
-job         : Apr. 17 2018
-framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
-highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : zenburn       # {zenburn, tomorrow, solarized-dark, ...}
-widgets     : bootstrap     # {mathjax, quiz, bootstrap}
-mode        : selfcontained # {standalone, draft}
-knit        : slidify::knit2slides
-logo        : goyologo.png  # Graphic files will be in ~/myDeck/assets/img
-biglogo     : goyologo.png
-license     : by-nc-sa
-assets      : {assets: ../../assets}       # Add an assets directory
-libraries   : {libraries: ../../libraries} # Add a libraries directory
-ext_widgets : {rCharts: [libraries/nvd3, libraries/leaflet, libraries/dygraphs]}
----
-```
+    ---
+    title       : Slidify 
+    subtitle    : A little bit more sysadmin oriented Tutorial
+    author      : Gregorio Ambrosio
+    job         : Apr. 17 2018
+    framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+    highlighter : highlight.js  # {highlight.js, prettify, highlight}
+    hitheme     : zenburn       # {zenburn, tomorrow, solarized-dark, ...}
+    widgets     : bootstrap     # {mathjax, quiz, bootstrap}
+    mode        : selfcontained # {standalone, draft}
+    knit        : slidify::knit2slides
+    logo        : goyologo.png  # Graphic files will be in ~/myDeck/assets/img
+    biglogo     : goyologo.png
+    license     : by-nc-sa
+    assets      : {assets: ../../assets}       # Add an assets directory
+    libraries   : {libraries: ../../libraries} # Add a libraries directory
+    ext_widgets : {rCharts: [libraries/nvd3, libraries/leaflet, libraries/dygraphs]}
+    ---
+
 
 ---
 
@@ -467,33 +466,77 @@ ext_widgets : {rCharts: [libraries/nvd3, libraries/leaflet, libraries/dygraphs]}
 
 Your first slide begins under YAML and looks like this:
 
-```Rmd
---- .class #id
+    --- .class #id
 
-## Slide Title
+    ## Slide Title
 
-- Whatever you put after `##` will be the title of the slide.
-- Each slide needs to be preceeded by an empty line followed by `---`
-  this denotes the beginning of a new slide and the end of the previous slide.
-- `.class #id` are `CSS` attributes you can use to customize the slide.
-- Whatever you put between `##` and `---` is up to you! As long as it is
-  valid R Markdown or `HTML`.
+    - Whatever you put after `##` will be the title of the slide.
+    - Each slide needs to be preceeded by an empty line followed by `---`
+      this denotes the beginning of a new slide and the end of the previous slide.
+    - `.class #id` are `CSS` attributes you can use to customize the slide.
+    - Whatever you put between `##` and `---` is up to you! As long as it is
+      valid R Markdown or `HTML`.
 
-```
+---
+
+## Blocks
+
+Blocks are slides nested within a slide, identified by three stars. Just like a
+slide, they can contain properties, title and content.
+
+There are two types of blocks - named and unnamed. A block can be named by
+specifying the property `{name: block1}` (or using the symbolic shortcut
+`{=block1}`).
+
+A block with the name `block1` can be accessed in a slide layout as
+`slide.block1`. The title and content of this block can be accessed as
+`slide.block1.title` and `slide.block1.content**. Unnamed blocks are aggregated
+into the namespace `slide.blocks**.
+
+---
+
+<img style='margin-top: -40px' class="center" src='assets/img/slide_properties.svg' width=960px height=250px></img> 
 
 ---
 
 ## Slide customization
 
-Slide attributes are valid YAML and are written after `---` as follows
+- **Properties**. They are implemented as *css*. You can find them in
+  `libraries/frameworks/io2012/css` or write your own css files under
+  `assets/css`. Your css files will be loaded when open you slidify
+  presentation.
+- **Layouts**. They are implemented as *html* files conforming mustache
+  specifications under `libraries/frameworks/io2012/layouts`. Also you can write
+  your own layouts and locate them under `assets/layouts`.
+- **Widgets**.
+
+With io2012 framework you have two layouts: `twocol.html` and `vcenter.html`
+besides the default `slides.html`. Be careful with the examples because they
+often use their own layouts.
+
+This presentation also uses its own files as `assets/css/app.css` and
+`assets/layouts/carousel.html`.
+
+---{class: [segue, dark]}
+
+## Properties
+
+---
+
+## Slide properties
+
+Slide properties, i.e. attributes, are key-value pairs that are passed to the
+layout.They are valid YAML and are written after `---` as follows
 
 ```
-.class_name #id_value
-class:class_name id:id_value
-{class: class_name, id: id_value}
+.class_name_1 .class_name_2 #id_value
+class:[class_name_1, class_name_2] id:id_value
+{class: [class_name_1, class_name_2], id: id_value}
 ```
 
-The three lines are equivalent
+The three lines are equivalent. The first one follows symbolic css style
+prefixes where a dot indicates class, a hash refers to id and an ampersand
+identifies a layout.
 
 e.g.
 
@@ -506,8 +549,7 @@ class:segue id:myId bg:blue
 For clarity we will use the third option
 
 ---
-
-## Slide attributes
+## Slide properties
 
 | VARIABLE       | DESCRIPTION                           |
 |----------------|---------------------------------------|
@@ -526,7 +568,7 @@ For clarity we will use the third option
 
 ---
 
-## Parsed Slide
+## Slide to parse
 
 ```
 --- {class: class_name, id: id_value, bg: color_name}
@@ -536,19 +578,165 @@ For clarity we will use the third option
 Slide Contents
 ```
 
-Slidify parses the slide as
+---{class: smaller}
+
+## Parsed slide
 
 ```
-$id
-[1] "id_value"
-$bg
-[1] "color_name"
-$class
-[1] "class_name"
+$html
+[1] "<h2>Slide Title</h2>\n\n<p>Slide Contents</p>\n"
+
 $header
 [1] "<h2>Slide Title</h2>"
+
+$level
+[1] "2"
+
+$title
+[1] "Slide Title"
+
 $content
 [1] "<p>Slide Contents</p>\n"
+
+$class
+[1] "class_name"
+
+$bg
+[1] "color_name"
+
+$id
+[1] "id_value"
+```
+
+---{class: [segue, dark]}
+
+## Layouts
+
+---
+
+## Layouts
+
+Slidify uses [whisker](https://github.com/edwindj/whisker) to render the final
+html by passing the parsed data to the layout file.
+
+Whisker is a [mustache](http://mustache.github.io/) implementation in R
+confirming to the mustache specification. 
+
+A layout is a *mustache template* that specifies
+the markup to render a slide.
+
+To identify a layout you can use an ampersand (&) or `tpl` as key. e.g.
+`---&layout_name` or `---tpl:layout_name`
+
+Slidify combines the parsed slide plus the layout to render the HTML.
+
+--- 
+
+## Creating a layout
+
+To create a new layout you must to make a new `.html` file conforming the mustache
+specification under your `assets/layouts` directory.
+
+Insert your code and reference it as a slide property, i.e.
+
+```sh
+cd /path/to/myDeck/assets/layouts
+touch myLayout.html
+vim myLayout.html
+```
+
+and then use it in your slide as follows
+
+    ---&myLayout
+
+or
+
+    ---{tpl: myLayout}
+
+---{class: [RAW, smaller]}
+
+## Example of layout: carousel
+
+```{r results = 'asis', echo = F}
+writeLines(paste('\t', readLines('assets/layouts/test.html')))
+```
+
+--- {tpl: carousel, class: span12}
+
+## Carousel
+
+*** {class: active, img: "assets/img/apply.svg"}
+
+Image 1
+
+*** {img: "assets/img/split.svg"}
+
+Image 2
+
+---{class: [segue, dark]}
+
+## Examples
+
+---{class: smaller}
+
+## Image inclusion
+
+To include an image in your slide you must insert html code as follows:
+
+```
+<img style='margin-top: 5px' class="center" src='assets/img/slide_properties.svg' width=500px></img> 
+```
+
+<img class="center" src='assets/img/slide_properties.svg' width=500px></img> 
+
+---
+
+Also sometimes you will find the following code
+
+```
+<iframe src='assets/img/slidify_banner.png'></iframe>
+```
+   
+<iframe src='assets/img/slidify_banner.png'></iframe>
+
+---
+
+## Quoted text
+
+Use `<q>...</q>` html tags
+
+    <q> Slidify helps __create__, customize and share, elegant, dynamic and ...</q>
+
+<q> Slidify helps __create__, customize and share, elegant, dynamic and interactive HTML5 documents using R Markdown.</q>
+
+---
+
+## vcenter layout
+
+vcenter layout presents content in the slide center.
+
+Use vcenter layout as follows
+
+    ---&vcenter
+    
+or
+
+    ---{tpl: vcenter}
+
+---&vcenter
+
+<q>Slide contents</q>
+
+---{class: RAW}
+
+## Inserting text file content
+
+Sometimes you'll need to include raw code or text in your slide.
+
+You can to create a text raw file and insert it as follows
+
+``` {r results = 'asis', echo = F}
+writeLines(paste('\t', readLines('assets/includes/myfile.txt')))
 ```
 
 ---
@@ -738,9 +926,5 @@ by
 
 --- .class #id
 
-## Read-And-Delete
 
-1. Edit YAML front matter
-2. Write using R Markdown
-3. Use an empty line followed by three dashes to separate slides!
 
