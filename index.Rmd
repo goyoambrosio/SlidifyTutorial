@@ -549,7 +549,7 @@ class:segue id:myId bg:blue
 For clarity we will use the third option
 
 ---
-## Slide properties
+## Slide properties table
 
 | VARIABLE       | DESCRIPTION                           |
 |----------------|---------------------------------------|
@@ -614,7 +614,7 @@ $id
 
 ---
 
-## Layouts
+## About layouts
 
 Slidify uses [whisker](https://github.com/edwindj/whisker) to render the final
 html by passing the parsed data to the layout file.
@@ -655,7 +655,7 @@ or
 
 ---{class: [RAW, smaller]}
 
-## Example of layout: carousel
+## Carousel layout
 
 ```{r results = 'asis', echo = F}
 writeLines(paste('\t', readLines('assets/layouts/test.html')))
@@ -673,45 +673,9 @@ Image 1
 
 Image 2
 
----{class: [segue, dark]}
-
-## Examples
-
----{class: smaller}
-
-## Image inclusion
-
-To include an image in your slide you must insert html code as follows:
-
-```
-<img style='margin-top: 5px' class="center" src='assets/img/slide_properties.svg' width=500px></img> 
-```
-
-<img class="center" src='assets/img/slide_properties.svg' width=500px></img> 
-
 ---
 
-Also sometimes you will find the following code
-
-```
-<iframe src='assets/img/slidify_banner.png'></iframe>
-```
-   
-<iframe src='assets/img/slidify_banner.png'></iframe>
-
----
-
-## Quoted text
-
-Use `<q>...</q>` html tags
-
-    <q> Slidify helps __create__, customize and share, elegant, dynamic and ...</q>
-
-<q> Slidify helps __create__, customize and share, elegant, dynamic and interactive HTML5 documents using R Markdown.</q>
-
----
-
-## vcenter layout
+## Vcenter layout
 
 vcenter layout presents content in the slide center.
 
@@ -727,49 +691,35 @@ or
 
 <q>Slide contents</q>
 
----{class: RAW}
+---.smaller
 
-## Inserting text file content
+## Two columns Layout
 
-Sometimes you'll need to include raw code or text in your slide.
+Two columns layout presents content distributed in two columns.
 
-You can to create a text raw file and insert it as follows
+Use layout as follows
 
-``` {r results = 'asis', echo = F}
-writeLines(paste('\t', readLines('assets/includes/myfile.txt')))
-```
+    ---&twocol w1:40% w2:60%
 
----
+    ## Using twocol layout
 
-## Slide with custom background
+    This slide has two columns
 
-Two options:
+    *** =left
 
-```
----{bg:url(assets/img/<my_image_file>)}
-```
+    - point 1
+    - point 2
+    - point 3
 
-or
+    *** =right
 
-```
----{id:custbg}
-
-## Slide with custom background
-
-<style>
-#custbg {
-  background-image:url(assets/img/portada_promalaga.png); 
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-}
-</style>
-```
-
+    - point 1
+    - point 2
+    - point 3
 
 ---&twocol w1:40% w2:60%
 
-## Two Column Layout
+## Using twocol layout
 
 This slide has two columns
     
@@ -785,6 +735,12 @@ This slide has two columns
 - point 2
 - point 3
 
+
+---{class: [segue, dark]}
+
+## Playing with code
+
+
 ---
 
 ## Code hightlighting
@@ -793,17 +749,17 @@ We want that our code blocks look good. Syntax highlighting let us to make code 
 
 Usage:
 
-\`\`\`<language>
-... code
-\`\`\`
+    ```<language>
+    ... code
+    ```
 
-knitr converts `{<language_name> ...}` to `<language_name>` but the language
-name in kinitr corresponds to the engine that executes the code but does not
-have to correspond to the name used by hightlight.js
+*Note that knitr converts `{<language_name> ...}` to `<language_name>` but the
+language name in knitr corresponds to the engine that executes the code but
+does not have to correspond to the name used by hightlight.js.*
 
 ---
 
-## Using Hightlight.js
+## Using Hightlight.js ##
 
 Highlight.js is a syntax highlighter written in JavaScript. It works with pretty
 much any markup, doesn’t depend on any framework and has automatic language
@@ -819,6 +775,7 @@ Main features
 - compatible with any js framework
 
 [hightlight.js demo](https://highlightjs.org/static/demo/)
+
 [CSS classes reference](http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html)
 
 
@@ -864,6 +821,147 @@ How about `sh`?
     # run wc on all engine examples
     ls | grep engine | head -n8 | xargs wc
     ```
+
+---{class: [segue, dark]}
+
+## Other stuff
+
+---
+
+## Section
+
+```md
+---{class: [segue, dark]}
+
+## Section name
+```
+
+```md
+---{class: segue, bg: green}
+
+## Section name
+```
+
+---
+
+## Table
+
+```md
+## This is a table
+
+| **Variable**    | **Description**                       |
+|-----------------|---------------------------------------|
+| `slide.title`   | The title of the slide with no markup |
+| `slide.header`  | The title of the slide with markup    |
+| `slide.level`   | The title header level (h1 - h6)      |
+| `slide.content` | The contents of the slide sans header |
+| `slide.html`    | The contents of the slide with header |
+| `slide.num`     | The number of the slide               |
+| `slide.id`      | The id assigned to the slide          |
+| `slide.class`   | The class assigned to the slide       |
+| `slide.bg`      | The background assigned to the slide  |
+| `slide.myblock` | The slide block named myblock         |
+| `slide.blocks`  | The slide blocks which are not named  |
+| `slide.rendered`| The rendered slide                    |
+```
+
+---{class: green}
+
+## Changing page number color
+
+```md
+---{class: green}
+
+## Slide Title
+
+Slide Content
+```
+
+---
+
+## Corner banner
+
+```html
+<a class='example' href="http://your.url">click here</a>
+
+## Slide Title
+
+Slide content
+```
+
+<a class='example' href="http://goyoambrosio.com">click here</a>
+
+---{class: smaller}
+
+## Image inclusion
+
+To include an image in your slide you must insert html code as follows:
+
+```
+<img style='margin-top: 5px' class="center" src='assets/img/slide_properties.svg' width=500px></img> 
+```
+
+<img class="center" src='assets/img/slide_properties.svg' width=500px></img> 
+
+---
+
+Also sometimes you will find the following code
+
+```
+<iframe src='assets/img/slidify_banner.png'></iframe>
+```
+   
+<iframe src='assets/img/slidify_banner.png'></iframe>
+
+---
+
+## Quoted text
+
+Use `<q>...</q>` html tags
+
+    <q> Slidify helps __create__, customize and share, elegant, dynamic and ...</q>
+
+<q> Slidify helps __create__, customize and share, elegant, dynamic and interactive HTML5 documents using R Markdown.</q>
+
+---
+
+## Inserting text file content
+
+Sometimes you'll need to include raw code or text in your slide.
+
+You can to create a text raw file and insert it as follows
+
+``` {r results = 'asis', echo = F}
+writeLines(paste('\t', readLines('assets/includes/myfile.txt')))
+```
+
+---
+
+## Slide with custom background
+
+Two options:
+
+```
+---{bg:url(assets/img/<my_image_file>)}
+```
+
+or
+
+```
+---{id:custbg}
+
+## Slide with custom background
+
+<style>
+#custbg {
+  background-image:url(assets/img/<my_image_file>); 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+</style>
+```
+
 
 ---
 
