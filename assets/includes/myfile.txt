@@ -1,0 +1,7 @@
+---{class: RAW}
+
+## Slide
+
+``` {r results = 'asis', echo = F}
+writeLines(paste('\t', readLines('assets/includes/myfile.txt')))
+```
