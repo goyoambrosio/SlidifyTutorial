@@ -156,3 +156,15 @@ div.callout {
 	bottom: -20px;
 	border-top: 10px solid #444;
 }
+
+
+.segue h1{
+    font-family: "Open Sans Condensed";
+    font-weight: 700;
+    font-size: 60px;
+    color: #e6e6e6;
+    letter-spacing: -2px;
+
+}
+
+

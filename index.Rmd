@@ -822,9 +822,9 @@ How about `sh`?
     ls | grep engine | head -n8 | xargs wc
     ```
 
----{class: [segue, dark]}
+---{class: [segue,dark]}
 
-## Other stuff
+# Other stuff
 
 ---
 
@@ -890,6 +890,25 @@ Slide content
 ```
 
 <a class='example' href="http://goyoambrosio.com">click here</a>
+
+---
+
+## Definition
+
+### Subtitle
+
+Contents
+
+```html
+<a class='definition' href="http://your.url">click here</a>
+
+## Slide Title
+
+Slide content
+```
+
+<a class='definition' href="http://goyoambrosio.com">click here</a>
+
 
 ---{class: smaller}
 
