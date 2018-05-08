@@ -104,7 +104,7 @@ code can be used in your templates.
 
 --- .segue bg:grey
 
-## Set up your workspace
+# Set up your workspace
 
 ---
 
@@ -519,7 +519,7 @@ This presentation also uses its own files as `assets/css/app.css` and
 
 ---{class: [segue, dark]}
 
-## Properties
+# Properties
 
 ---
 
@@ -610,7 +610,7 @@ $id
 
 ---{class: [segue, dark]}
 
-## Layouts
+# Layouts
 
 ---
 
@@ -738,7 +738,7 @@ This slide has two columns
 
 ---{class: [segue, dark]}
 
-## Playing with code
+# Playing with code
 
 
 ---
@@ -1032,7 +1032,106 @@ by
     Slide 2 content
     ---
 
+---{class: [segue, dark]}
+
+# CSS related
+
 ---
+
+## Changing background in all slides at once
+
+Include this in your `/assets/css/mycss.css`:
+
+```css
+slides > slide {
+  background: #hex !important;
+}
+```
+
+---{class: smaller}
+
+## Changing the font type on slides
+
+```css
+@import url(http://fonts.googleapis.com/css?family=Baumans);
+
+.title-slide hgroup > h1{
+font-family: 'Baumans', cursive;
+}
+
+.title-slide hgroup > h2{
+  font-family: 'Oswald', 'Calibri', sans-serif;
+}
+
+/* Fonts and Spacing */
+article p, article li, article li.build, section p, section li{
+  font-family: 'Open Sans','Helvetica', 'Crimson Text', 'Garamond',  'Palatino', sans-serif;
+  text-align: justify;
+  font-size:22px;
+  line-height: 1.5em;
+  color: #AA7139;
+}
+
+...
+
+```
+
+*** =pnotes
+
+```css
+@import url(http://fonts.googleapis.com/css?family=Baumans);
+
+.title-slide hgroup > h1{
+font-family: 'Baumans', cursive;
+}
+
+.title-slide hgroup > h2{
+  font-family: 'Oswald', 'Calibri', sans-serif;
+}
+
+/* Fonts and Spacing */
+article p, article li, article li.build, section p, section li{
+  font-family: 'Open Sans','Helvetica', 'Crimson Text', 'Garamond',  'Palatino', sans-serif;
+  text-align: justify;
+  font-size:22px;
+  line-height: 1.5em;
+  color: #AA7139;
+}
+
+slide:not(.segue) h2{
+  font-family: 'Calibri', Arial, sans-serif;
+  font-size: 52px;
+  font-style: normal;
+  font-weight: bold;
+  text-transform: normal;
+  letter-spacing: -2px;
+  line-height: 1.2em;
+  color: #AA9A39;
+}
+
+/* Reduce Space between Title and Body */
+slides > slide > hgroup + article {
+  margin-top: 15px;
+}
+
+slides > slide {
+    background: #303E73;
+}
+
+.title-slide {
+  background-color: #303E73; /* #EDE0CF; ; #CA9F9D*/
+  /* background-image:url(http://goo.gl/EpXln); */
+}
+
+.title-slide hgroup > h1, 
+.title-slide hgroup > h2 {
+  color: #AA7139 ;
+}
+
+```
+
+---
+
 
 ## Tutorials
 
