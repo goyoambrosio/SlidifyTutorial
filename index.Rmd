@@ -1,6 +1,6 @@
 ---
 title       : Slidify 
-subtitle    : A little bit more sysadmin oriented Tutorial
+subtitle    : A little bit more sysadmin oriented tutorial
 author      : Gregorio Ambrosio
 job         : Apr. 17 2018
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
@@ -12,6 +12,10 @@ knit        : slidify::knit2slides
 logo        : goyologo.png  # Graphic files will be in ~/myDeck/assets/img
 biglogo     : goyologo.png
 license     : by-nc-sa
+github:
+  user: goyoambrosio
+  repo: SlidifyTutorial
+  branch: "gh-pages"
 assets      : {assets: ../../assets}       # Add an assets directory
 libraries   : {libraries: ../../libraries} # Add a libraries directory
 ext_widgets : {rCharts: [libraries/nvd3, libraries/leaflet, libraries/dygraphs]}
@@ -139,7 +143,7 @@ generic support for multiple major modes inside a single emacs buffer. It is
 necessary to allow the mix of modes present in Rmd files, specially `markdown`
 and `R` modes but also other major modes.
 
----
+---{class: smaller}
 
 ## How to install R
 
@@ -214,7 +218,7 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 The first time you run Spacemacs you must to answer three initial configuratation questions.
 
 
----
+---{class: smaller}
 
 ## How to install ESS and polymode major modes for Emacs
 
@@ -287,9 +291,9 @@ Each presentation is called a 'deck'. To create a new deck open R, set
 your working directory and use the `author` command.
 
 ```r
-> setwd("/path/to/")
-> require(slidify)
-> author("myDeck")
+setwd("/path/to/")
+require(slidify)
+author("myDeck")
 ```
 
 `/path/to/myDeck` is created.
@@ -300,7 +304,7 @@ Create a R Project from Existing Directory
 File -> New Project -> Existing Directory -> /path/to/myDeck -> Create Project
 ```
 
-A file called `myDeck.Rproj` will be created under `/path/to/myDeck**.
+A file called `myDeck.Rproj` will be created under `/path/to/myDeck`.
 
 *** =pnotes
 
@@ -310,9 +314,7 @@ Then, automatically:
 - Inside of this directory an assets directory and a file called “index.Rmd” is created.
 - The assets directory is populated with the following empty folders: css, img, js, and layouts.
 
----
-
-
+---{class: smaller}
 
 ## Add version control with Git 
 
@@ -328,7 +330,7 @@ touch .gitignore
 vim .gitignore
 ```
 
-Add your ignored extensions
+Add your [ignored extensions](.gitignore)
 
 ```sh
 # RStudio files #
@@ -341,7 +343,7 @@ Add your ignored extensions
 
 ---
 
-## Upload the new repository
+## Upload the new repository to BitBucket or GitHub
 
 Create an empty Repository, e.g. `myDeck` in BitBucket or GitHub. With an empty
 repository a default branch called `master` won't be created. Then `push` the
@@ -405,7 +407,7 @@ browseURL("index.html")
 
 --- .segue bg:grey
 
-## Edit slides
+# Edit slides
 
 ---
 
@@ -436,7 +438,7 @@ embedded R (and other languages** code.
 
 YAML is a superset of JSON.
 
----
+---{class: smaller}
 
 ## How YAML looks
 
@@ -454,11 +456,14 @@ YAML is a superset of JSON.
     logo        : goyologo.png  # Graphic files will be in ~/myDeck/assets/img
     biglogo     : goyologo.png
     license     : by-nc-sa
+    github:
+      user: goyoambrosio
+      repo: SlidifyTutorial
+      branch: "gh-pages"
     assets      : {assets: ../../assets}       # Add an assets directory
     libraries   : {libraries: ../../libraries} # Add a libraries directory
     ext_widgets : {rCharts: [libraries/nvd3, libraries/leaflet, libraries/dygraphs]}
     ---
-
 
 ---
 
@@ -466,16 +471,20 @@ YAML is a superset of JSON.
 
 Your first slide begins under YAML and looks like this:
 
-    --- .class #id
+```markdown
+--- .myClass #myId &myLayout 
+or 
+---{class: myClass, id: myId, tpl: myLayout}
 
-    ## Slide Title
+## Slide Title
 
-    - Whatever you put after `##` will be the title of the slide.
-    - Each slide needs to be preceeded by an empty line followed by `---`
-      this denotes the beginning of a new slide and the end of the previous slide.
-    - `.class #id` are `CSS` attributes you can use to customize the slide.
-    - Whatever you put between `##` and `---` is up to you! As long as it is
-      valid R Markdown or `HTML`.
+- Whatever you put after `##` will be the title of the slide.
+- Each slide needs to be preceeded by an empty line followed by `---`
+  this denotes the beginning of a new slide and the end of the previous slide.
+- `.class #id` are `CSS` attributes you can use to customize the slide.
+- Whatever you put between `##` and `---` is up to you! As long as it is
+  valid R Markdown or `HTML`.
+```
 
 ---
 
@@ -497,6 +506,10 @@ into the namespace `slide.blocks**.
 
 <img style='margin-top: -40px' class="center" src='assets/img/slide_properties.svg' width=960px height=250px></img> 
 
+---{class: [segue, dark]}
+
+# Slide Customization
+
 ---
 
 ## Slide customization
@@ -508,7 +521,8 @@ into the namespace `slide.blocks**.
 - **Layouts**. They are implemented as *html* files conforming mustache
   specifications under `libraries/frameworks/io2012/layouts`. Also you can write
   your own layouts and locate them under `assets/layouts`.
-- **Widgets**.
+- **Widgets**. A widget is a collection of stylesheets, javascripts and layouts
+  that add additional functionality to a slide deck.
 
 With io2012 framework you have two layouts: `twocol.html` and `vcenter.html`
 besides the default `slides.html`. Be careful with the examples because they
@@ -794,11 +808,9 @@ with the original text in the output document.
 knitr support a lot of computer languages that implemented in [knitr language
 engines](https://yihui.name/knitr/demo/engines/**.
 
----
+---{class: smaller}
 
 ## Running bash scripts
-
-Run bash scripts
 
     ```{r,eval=FALSE}
     # should exist
@@ -824,7 +836,7 @@ How about `sh`?
 
 ---{class: [segue,dark]}
 
-# Other stuff
+# Recipes
 
 ---
 
@@ -879,7 +891,7 @@ Slide Content
 
 ---
 
-## Corner banner
+## Corner banner: `example` class
 
 ```html
 <a class='example' href="http://your.url">click here</a>
@@ -893,11 +905,7 @@ Slide content
 
 ---
 
-## Definition
-
-### Subtitle
-
-Contents
+## Corner banner: `definition` class
 
 ```html
 <a class='definition' href="http://your.url">click here</a>
@@ -908,7 +916,6 @@ Slide content
 ```
 
 <a class='definition' href="http://goyoambrosio.com">click here</a>
-
 
 ---{class: smaller}
 
@@ -1032,6 +1039,10 @@ by
     Slide 2 content
     ---
 
+--- #stackedit
+
+ <iframe src = 'https://stackedit.io' height='600px'></iframe>
+
 ---{class: [segue, dark]}
 
 # CSS related
@@ -1130,17 +1141,22 @@ slides > slide {
 
 ```
 
+---{class: [segue, dark]}
+
+# Other stuff
+
 ---
 
-
-## Tutorials
+## Tutorials and resources
 
 1. [Introduction](http://slidify.github.io/workshops/tutorials/01)
 2. [Frameworks](http://slidify.github.io/workshops/tutorials/02)
 3. [Layouts](http://slidify.github.io/workshops/tutorials/03)
 4. [Widgets](http://slidify.github.io/workshops/tutorials/04)
+5. [Slidify on GitHub](https://github.com/ramnathv/slidify/wiki/Page-Properties)
+6. [Ramnath Vaidyanathan on Github](https://github.com/ramnathv/slidify/wiki/Page-Properties)
+7. [Slidify.org](http://slidify.org/)
 
---- .class #id
 
 
 
