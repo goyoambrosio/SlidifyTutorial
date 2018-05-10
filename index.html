@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slidify</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Slidify">
+  <meta name="author" content="Gregorio Ambrosio">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/bootstrap/css/bootstrap.css"></link>
+<link rel=stylesheet href="libraries/widgets/nvd3/css/nv.d3.css"></link>
+<link rel=stylesheet href="libraries/widgets/nvd3/css/rNVD3.css"></link>
+<link rel=stylesheet href="libraries/widgets/leaflet/external/leaflet.css"></link>
+<link rel=stylesheet href="libraries/widgets/leaflet/external/leaflet-rCharts.css"></link>
+<link rel=stylesheet href="libraries/widgets/leaflet/external/legend.css"></link>
+<link rel=stylesheet href="./assets/css/app.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  <script src="libraries/widgets/nvd3/js/jquery-1.8.2.min.js"></script>
+<script src="libraries/widgets/nvd3/js/d3.v3.min.js"></script>
+<script src="libraries/widgets/nvd3/js/nv.d3.min-new.js"></script>
+<script src="libraries/widgets/nvd3/js/fisheye.js"></script>
+<script src="libraries/widgets/leaflet/external/leaflet.js"></script>
+<script src="libraries/widgets/leaflet/external/leaflet-providers.js"></script>
+<script src="libraries/widgets/leaflet/external/Control.FullScreen.js"></script>
+
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+      <slide class="nobackground">
+    <article class="flexbox vcenter">
+      <span>
+        <img width='300px' src="assets/img/goyologo.png">
+      </span>
+    </article>
+  </slide>
+    <slide class="title-slide segue nobackground">
+  <aside class="gdbar">
+    <img src="assets/img/goyologo.png">
+  </aside>
+  <hgroup class="auto-fadein">
+    <h1>Slidify</h1>
+    <h2>A little bit more sysadmin oriented tutorial</h2>
+    <p>Gregorio Ambrosio<br/>Apr. 17 2018</p>
+  </hgroup>
+    <a href="https://github.com/goyoambrosio/SlidifyTutorial/zipball/gh-pages" class="example">
+     Download
+    </a>
+  <article></article>  
+  <footer class = 'license'>
+    <a href='http://creativecommons.org/licenses/by-nc-sa/3.0/'>
+    <img width = '80px' src = 'http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png'>
+    </a>
+  </footer>
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <!--
+If you want to enable automatic prompt generation use
+{bash ,prompt=TRUE, eval=FALSE}
+{r, prompt=TRUE, eval=FALSE}
+-->
+
+<h2>R presentations</h2>
+
+<p>R presentations are presentations coded as Rmarkdown and then translated to HTML
+using the R programming language framework.</p>
+
+<p>Rmarkdown is a markdown based R syntax that helps make documents in many different formats.</p>
+
+<p>There are many different ways to make <em>r presentations</em> in RStudio (<code>oslides</code>, <code>Slidy</code>, <code>Beamer</code>, ...)</p>
+
+<p>Slidify exists as a package with a huge online community and popularity.</p>
+
+<p>Slidify has the most options and flexibility but you mustn&#39;t to use it until you
+are more comfortable with R packages and general syntax.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+  <aside class="note" id="">
+    <section>
+      <p>R presentations are presentations coded as HTML created with the R programming language framework.</p>
+
+<p>Rmarkdown is a markdown based R syntax that helps make documents in many different formats.</p>
+
+<p>In RStudio, you simply create a new rmarkdown file, write your text/code, and
+runs <code>knitr</code> and <code>pandoc</code> to turn your raw text into a complete HTML, named <em>r
+presentations</em>, or PDF document.</p>
+
+<p>There are many different ways to make <em>r presentations</em> in RStudio but three main
+choices: <code>ioslides</code>, <code>Slidy</code>, and <code>Beamer</code>.</p>
+
+<p>On the other hand, Slidify exists as a package with a huge online community and popularity.</p>
+
+<p>Slidify has the most options and flexibility. This package is clearly aimed at
+the intermediate to advanced R community and you mustn&#39;t to use slidify until
+you are more comfortable with R packages and general syntax.</p>
+
+<p>Slidify also uses <code>knitr</code> but renders HTML pages using <a href="Slidify%20uses%0A%5Bwhisker%5D(https://github.com/edwindj/whisker">Whisker</a></p>
+
+<p>References:</p>
+
+<p><a href="http://yintingchou.com/others/2017/05/26/ioslides-slidy.html">Comparisons between ioslides and Slidify in R Markdown Presentation</a></p>
+
+<p>[Introduction to Presentations in Rmarkdown](<a href="http://data-analytics.net/cep/Schedule_files/presentations_demo.html**">http://data-analytics.net/cep/Schedule_files/presentations_demo.html**</a></p>
+
+    </section>
+  </aside>
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>What is Slidify</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Slidify is a tool that makes it easy to create, customize and publish,
+reproducible HTML5 slide decks using R Markdown.</p>
+
+<p>Slidify helps create, customize and share, elegant, dynamic and interactive
+HTML5 documents using R Markdown.</p>
+
+<p>It is is an almagamation of other technologies including knitr, Markdown, and
+several javascript libaries</p>
+
+<p>It allows embedded code chunks and mathematical formulas</p>
+
+<p>You can view slidify presentations with any web browser and share them easily
+on Github, Dropbox, or your own website</p>
+
+  </article>
+  <!-- Presenter Notes -->
+  <aside class="note" id="">
+    <section>
+      <p>Slidify uses <a href="https://github.com/edwindj/whisker">whisker</a> to render the final
+html by passing the parsed data to the layout file.</p>
+
+<p>Whisker is a <a href="http://mustache.github.io/"></a> implementation in R
+confirming to the Mustache specification. </p>
+
+<p>Mustache is a logicless templating language, meaning that no programming source
+code can be used in your templates.</p>
+
+    </section>
+  </aside>
+</slide>
+
+<slide class="segue" id="slide-3" style="background:grey;">
+  <hgroup>
+    <h1>Set up your workspace</h1>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Things you need</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>To work with slidify you need the right environment:</p>
+
+<ul>
+<li>A language and environment for statistical computing and graphics:
+<a href="https://www.r-project.org/">R</a></li>
+<li>An integrated development environment (IDE) for R:
+<a href="https://www.rstudio.com/">RStudio</a></li>
+<li>Optionally a powerful more-than-an-editor like
+<a href="https://www.gnu.org/software/emacs/">Emacs</a> customized with
+<a href="http://spacemacs.org/">Spacemacs</a>, <a href="https://ess.r-project.org/">ESS</a> and
+<a href="https://github.com/vspinu/polymode">Polymode</a>.</li>
+<li>A way to install R packages under development (i.e. slidify):
+<a href="https://github.com/r-lib/devtools">devtools</a></li>
+</ul>
+
+<p>Preferably in Linux!</p>
+
+  </article>
+  <!-- Presenter Notes -->
+  <aside class="note" id="">
+    <section>
+      <p><a href="http://spacemacs.org/">Spacemacs</a> is an open source Emacs distribution, aimed
+at providing a bridge between Emacs and Vim.</p>
+
+<p><a href="https://ess.r-project.org/">ESS</a> (Emacs Speaks Statistics) is an add-on package
+for Emacs. It is designed to support editing of scripts and interaction with
+various statistical analysis programs such as R.</p>
+
+<p><a href="https://github.com/vspinu/polymode">Polymode</a> is an emacs package that offers
+generic support for multiple major modes inside a single emacs buffer. It is
+necessary to allow the mix of modes present in Rmd files, specially <code>markdown</code>
+and <code>R</code> modes but also other major modes.</p>
+
+    </section>
+  </aside>
+</slide>
+
+<slide class="smaller" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>How to install R</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The Ubuntu archives on CRAN are signed with the key of “Michael Rutter&quot;. To add
+the key to your system run:</p>
+
+<pre><code class="sh">sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+</code></pre>
+
+<p>edit the <code>source.list</code> file</p>
+
+<pre><code class="sh">sudo vim /etc/apt/sources.list
+</code></pre>
+
+<p>and add the corresponding source to your operating system version [Ubuntu 16.04+|17.10+]</p>
+
+<pre><code class="sh">deb https://cloud.r-project.org/bin/linux/ubuntu [xenial|artful]/
+</code></pre>
+
+<p>Finally, to install the complete R system, run:</p>
+
+<pre><code class="sh">sudo apt update
+sudo apt install r-base
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>How to install RStudio</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><a href="https://www.rstudio.com/products/rstudio/download/">Download</a> RStudio.</p>
+
+<p>Install it from command prompt </p>
+
+<pre><code class="sh"># For Debian based
+sudo dpkg -i rstudio-xenial-1.1.447-amd64.deb
+# install dependencies
+sudo apt install -f
+</code></pre>
+
+<p>Or click deb file through the file manager. Ubuntu will install it and its dependencies.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>How to install Emacs and Spacemacs</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>As usual, run this command</p>
+
+<pre><code class="bash">sudo apt install emacs
+</code></pre>
+
+<p>Download <a href="https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.tar.gz">SourceCode Pro
+font</a>,
+uncompress and install. (it takes some seconds ... don&#39;t suspect, it&#39;s working)</p>
+
+<pre><code class="bash">sudo mv ~/Downloads/source-code-pro-2.030R-ro-1.050R-it/OTF /usr/share/fonts/opentype
+sudo fc-cache -f
+</code></pre>
+
+<p>To install Spacemacs type</p>
+
+<pre><code class="bash">git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+</code></pre>
+
+<p>The first time you run Spacemacs you must to answer three initial configuratation questions.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="smaller" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>How to install ESS and polymode major modes for Emacs</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Edit <code>.spacemacs</code>, usually under your home directory.</p>
+
+<ol>
+<li><p>Activate <code>ess</code> configuration layer  </p>
+
+<pre><code>dotspacemacs-configuration-layers
+&#39;(ess)
+</code></pre></li>
+<li><p>Add <code>polymode</code> package as additional package  </p>
+
+<pre><code>dotspacemacs-additional-packages &#39;(polymode)
+</code></pre></li>
+<li><p>Add extension associations  </p>
+
+<pre><code>dotspacemacs/user-config ()
+(add-to-list &#39;auto-mode-alist &#39;(&quot;\\.Rmd$&quot; . poly-markdown+r-mode))
+</code></pre></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>How to install devtools</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Previously you need to install some libraries in your system:</p>
+
+<pre><code class="bash">$ sudo apt-get install build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev
+</code></pre>
+
+<p>Now run R as <code>sudo</code> and install the package</p>
+
+<pre><code class="sh">$ sudo -i R
+</code></pre>
+
+<pre><code class="r">&gt; install.packages(&#39;devtools&#39;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>How to install slidify</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Now you are ready to install Slidify</p>
+
+<p>Slidify is not on CRAN and needs to be installed from github using the <code>devtools</code>
+package. </p>
+
+<pre><code class="r">pkgs &lt;- c(&quot;slidify&quot;, &quot;slidifyLibraries&quot;, &quot;rCharts&quot;)
+devtools::install_github(pkgs, &quot;ramnathv&quot;)
+</code></pre>
+
+<p>As an alternative <a href="http://slidify.github.io">http://slidify.github.io</a> recommends installing the <code>dev</code> version of the package</p>
+
+<pre><code class="r">install_github(pkgs, &#39;ramnathv&#39;, ref = &#39;dev&#39;)
+</code></pre>
+
+<p>Now you are ready to create your first slidify presentation.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>Create a new Deck</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Each presentation is called a &#39;deck&#39;. To create a new deck open R, set
+your working directory and use the <code>author</code> command.</p>
+
+<pre><code class="r">setwd(&quot;/path/to/&quot;)
+require(slidify)
+author(&quot;myDeck&quot;)
+</code></pre>
+
+<p><code>/path/to/myDeck</code> is created.</p>
+
+<p>Create a R Project from Existing Directory</p>
+
+<pre><code>File -&gt; New Project -&gt; Existing Directory -&gt; /path/to/myDeck -&gt; Create Project
+</code></pre>
+
+<p>A file called <code>myDeck.Rproj</code> will be created under <code>/path/to/myDeck</code>.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+  <aside class="note" id="">
+    <section>
+      <p>Then, automatically:</p>
+
+<ul>
+<li>A directory with the name of your project is created inside of your current directory.</li>
+<li>Inside of this directory an assets directory and a file called “index.Rmd” is created.</li>
+<li>The assets directory is populated with the following empty folders: css, img, js, and layouts.</li>
+</ul>
+
+    </section>
+  </aside>
+</slide>
+
+<slide class="smaller" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Add version control with Git</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>If git is installed, then the <code>author</code> command also initializes a git repository,
+switchs to a <code>gh-pages</code> branch and commit all changes.</p>
+
+<p>Before uploading your deck to your favourite Git cloud provider create
+<code>.gitignore</code> to avoid version control for non essential files.</p>
+
+<pre><code class="sh">cd /path/to/myDeck
+touch .gitignore
+vim .gitignore
+</code></pre>
+
+<p>Add your <a href=".gitignore">ignored extensions</a></p>
+
+<pre><code class="sh"># RStudio files #
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+# ...
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Upload the new repository to BitBucket or GitHub</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Create an empty Repository, e.g. <code>myDeck</code> in BitBucket or GitHub. With an empty
+repository a default branch called <code>master</code> won&#39;t be created. Then <code>push</code> the
+local <code>myDeck</code> repository to the remote <code>myDeck</code> repo. Note that a new branch
+called <code>gh-pages</code> has been created.</p>
+
+<pre><code class="sh">cd /path/to/myDeck
+git add .
+git commit -am &quot;Initial commit&quot;
+git remote add origin_github https://github.com/username/myDeck.git
+git remote add origin_bitbucket https://username@bitbucket.org/username/myDeck.git
+git push -u origin_[github|bitbucket] --all
+git push -u origin_[github|bitbucket] --tags
+</code></pre>
+
+<p>Now you can work with your new repository as usual</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>Cloning your repo</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>To clone the repo on your machine take in account that you&#39;ll need to clone <code>gh-pages</code> branch</p>
+
+<pre><code class="sh">git clone -b gh-pages https://github.com/username/myDeck.git
+</code></pre>
+
+<p>or</p>
+
+<pre><code class="sh">git clone -b gh-page https://username@bitbucket.org/username/myDeck.git
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Editing with Emacs and RStudio</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>index.Rmd is the only file you need to edit and for that you have two ways:</p>
+
+<ul>
+<li>Using RStudio opening the project file, e.g. <code>/path/to/myDeck/myDeck.Rproj</code></li>
+<li>Using Emacs with ESS/Polymode major mode.</li>
+</ul>
+
+<p>To take advantage of their editing capabilities RStudio and Emacs can be used simultaneously.</p>
+
+<p>You can enable Emacs keybindings within RStudio using the Code section of the
+Global Options dialog.</p>
+
+<p>Changes made to the edited files will be updated in real time both in Emacs and RStudio.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Slidify it !</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">slidify(&quot;index.Rmd&quot;)
+browseURL(&quot;index.html&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue" id="slide-17" style="background:grey;">
+  <hgroup>
+    <h1>Edit slides</h1>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>index.Rmd = YAML + R Markdown</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>index.Rmd is the R Markdown document which you will use to compose the content of your presentation.</p>
+
+<p>It&#39;s composed of a YAML section and a body section.</p>
+
+<p><a href="https://github.com/ramnathv/slidify/wiki/Page-Properties">YAML metadata</a>
+includes the <code>title</code>, <code>subtitle</code>, <code>author</code>, and <code>job</code> of the author. Also
+includes what slide <code>framework</code> you wish to use, which code <code>highlighter</code> you
+wish to use, and any <code>widgets</code> you want to include.</p>
+
+<p>In addition it can include other fields like a <code>logo</code> to appear in your title
+slide under logo, the path to your <code>assets</code> folder and the paths to any other
+folders you may be using under url, and the specific theme for your code
+highlighter of choice under <code>hitheme</code>.</p>
+
+<p>Under YAML you can include your slides just using R Markdown to write them.</p>
+
+<p><a href="https://rmarkdown.rstudio.com/">R Markdown</a> is a file format for making dynamic
+documents with R. An R Markdown document is written in
+<a href="https://en.wikipedia.org/wiki/Markdown">markdown</a> and contains chunks of
+embedded R (and other languages** code.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+  <aside class="note" id="">
+    <section>
+      <p>YAML is a superset of JSON.</p>
+
+    </section>
+  </aside>
+</slide>
+
+<slide class="smaller" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>How YAML looks</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>---
+title       : Slidify 
+subtitle    : A little bit more sysadmin oriented Tutorial
+author      : Gregorio Ambrosio
+job         : Apr. 17 2018
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : zenburn       # {zenburn, tomorrow, solarized-dark, ...}
+widgets     : bootstrap     # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+logo        : goyologo.png  # Graphic files will be in ~/myDeck/assets/img
+biglogo     : goyologo.png
+license     : by-nc-sa
+github:
+  user: goyoambrosio
+  repo: SlidifyTutorial
+  branch: &quot;gh-pages&quot;
+assets      : {assets: ../../assets}       # Add an assets directory
+libraries   : {libraries: ../../libraries} # Add a libraries directory
+ext_widgets : {rCharts: [libraries/nvd3, libraries/leaflet, libraries/dygraphs]}
+---
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>Slides</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Your first slide begins under YAML and looks like this:</p>
+
+<pre><code class="markdown">--- .myClass #myId &amp;myLayout 
+or 
+---{class: myClass, id: myId, tpl: myLayout}
+
+## Slide Title
+
+- Whatever you put after `##` will be the title of the slide.
+- Each slide needs to be preceeded by an empty line followed by `---`
+  this denotes the beginning of a new slide and the end of the previous slide.
+- `.class #id` are `CSS` attributes you can use to customize the slide.
+- Whatever you put between `##` and `---` is up to you! As long as it is
+  valid R Markdown or `HTML`.
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>Blocks</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Blocks are slides nested within a slide, identified by three stars. Just like a
+slide, they can contain properties, title and content.</p>
+
+<p>There are two types of blocks - named and unnamed. A block can be named by
+specifying the property <code>{name: block1}</code> (or using the symbolic shortcut
+<code>{=block1}</code>).</p>
+
+<p>A block with the name <code>block1</code> can be accessed in a slide layout as
+<code>slide.block1</code>. The title and content of this block can be accessed as
+<code>slide.block1.title</code> and <code>slide.block1.content**. Unnamed blocks are aggregated
+into the namespace</code>slide.blocks**.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <article data-timings="">
+    <p><img style='margin-top: -40px' class="center" src='assets/img/slide_properties.svg' width=960px height=250px></img> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue dark" id="slide-23" style="background:;">
+  <hgroup>
+    <h1>Slide Customization</h1>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-24" style="background:;">
+  <hgroup>
+    <h2>Slide customization</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><strong>Properties</strong>. They are implemented as <em>css</em>. You can find them in
+<code>libraries/frameworks/io2012/css</code> or write your own css files under
+<code>assets/css</code>. Your css files will be loaded when open you slidify
+presentation.</li>
+<li><strong>Layouts</strong>. They are implemented as <em>html</em> files conforming mustache
+specifications under <code>libraries/frameworks/io2012/layouts</code>. Also you can write
+your own layouts and locate them under <code>assets/layouts</code>.</li>
+<li><strong>Widgets</strong>. A widget is a collection of stylesheets, javascripts and layouts
+that add additional functionality to a slide deck.</li>
+</ul>
+
+<p>With io2012 framework you have two layouts: <code>twocol.html</code> and <code>vcenter.html</code>
+besides the default <code>slides.html</code>. Be careful with the examples because they
+often use their own layouts.</p>
+
+<p>This presentation also uses its own files as <code>assets/css/app.css</code> and
+<code>assets/layouts/carousel.html</code>.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue dark" id="slide-25" style="background:;">
+  <hgroup>
+    <h1>Properties</h1>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
+    <h2>Slide properties</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Slide properties, i.e. attributes, are key-value pairs that are passed to the
+layout.They are valid YAML and are written after <code>---</code> as follows</p>
+
+<pre><code>.class_name_1 .class_name_2 #id_value
+class:[class_name_1, class_name_2] id:id_value
+{class: [class_name_1, class_name_2], id: id_value}
+</code></pre>
+
+<p>The three lines are equivalent. The first one follows symbolic css style
+prefixes where a dot indicates class, a hash refers to id and an ampersand
+identifies a layout.</p>
+
+<p>e.g.</p>
+
+<pre><code>.segue #myId bg:blue 
+class:segue id:myId bg:blue
+{class: segue, id: myId, bg: blue}
+</code></pre>
+
+<p>For clarity we will use the third option</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-27" style="background:;">
+  <hgroup>
+    <h2>Slide properties table</h2>
+  </hgroup>
+  <article data-timings="">
+    <table><thead>
+<tr>
+<th>VARIABLE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>slide.title</td>
+<td>The title of the slide with no markup</td>
+</tr>
+<tr>
+<td>slide.header</td>
+<td>The title of the slide with markup</td>
+</tr>
+<tr>
+<td>slide.level</td>
+<td>The title header level (h1 - h6)</td>
+</tr>
+<tr>
+<td>slide.content</td>
+<td>The contents of the slide sans header</td>
+</tr>
+<tr>
+<td>slide.html</td>
+<td>The contents of the slide with header</td>
+</tr>
+<tr>
+<td>slide.num</td>
+<td>The number of the slide</td>
+</tr>
+<tr>
+<td>slide.id</td>
+<td>The id assigned to the slide</td>
+</tr>
+<tr>
+<td>slide.class</td>
+<td>The class assigned to the slide</td>
+</tr>
+<tr>
+<td>slide.bg</td>
+<td>The background assigned to the slide</td>
+</tr>
+<tr>
+<td>slide.myblock</td>
+<td>The slide block named myblock</td>
+</tr>
+<tr>
+<td>slide.blocks</td>
+<td>The slide blocks which are not named</td>
+</tr>
+<tr>
+<td>slide.rendered</td>
+<td>he rendered slide</td>
+</tr>
+</tbody></table>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-28" style="background:;">
+  <hgroup>
+    <h2>Slide to parse</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>--- {class: class_name, id: id_value, bg: color_name}
+
+## Slide Title
+
+Slide Contents
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="smaller" id="slide-29" style="background:;">
+  <hgroup>
+    <h2>Parsed slide</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>$html
+[1] &quot;&lt;h2&gt;Slide Title&lt;/h2&gt;\n\n&lt;p&gt;Slide Contents&lt;/p&gt;\n&quot;
+
+$header
+[1] &quot;&lt;h2&gt;Slide Title&lt;/h2&gt;&quot;
+
+$level
+[1] &quot;2&quot;
+
+$title
+[1] &quot;Slide Title&quot;
+
+$content
+[1] &quot;&lt;p&gt;Slide Contents&lt;/p&gt;\n&quot;
+
+$class
+[1] &quot;class_name&quot;
+
+$bg
+[1] &quot;color_name&quot;
+
+$id
+[1] &quot;id_value&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue dark" id="slide-30" style="background:;">
+  <hgroup>
+    <h1>Layouts</h1>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-31" style="background:;">
+  <hgroup>
+    <h2>About layouts</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Slidify uses <a href="https://github.com/edwindj/whisker">whisker</a> to render the final
+html by passing the parsed data to the layout file.</p>
+
+<p>Whisker is a <a href="http://mustache.github.io/">mustache</a> implementation in R
+confirming to the mustache specification. </p>
+
+<p>A layout is a <em>mustache template</em> that specifies
+the markup to render a slide.</p>
+
+<p>To identify a layout you can use an ampersand (&amp;) or <code>tpl</code> as key. e.g.
+<code>---&amp;layout_name</code> or <code>---tpl:layout_name</code></p>
+
+<p>Slidify combines the parsed slide plus the layout to render the HTML.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-32" style="background:;">
+  <hgroup>
+    <h2>Creating a layout</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>To create a new layout you must to make a new <code>.html</code> file conforming the mustache
+specification under your <code>assets/layouts</code> directory.</p>
+
+<p>Insert your code and reference it as a slide property, i.e.</p>
+
+<pre><code class="sh">cd /path/to/myDeck/assets/layouts
+touch myLayout.html
+vim myLayout.html
+</code></pre>
+
+<p>and then use it in your slide as follows</p>
+
+<pre><code>---&amp;myLayout
+</code></pre>
+
+<p>or</p>
+
+<pre><code>---{tpl: myLayout}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="RAW smaller" id="slide-33" style="background:;">
+  <hgroup>
+    <h2>Carousel layout</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code> ---
+ layout: test 
+ ---
+ {{{ slide.content }}}
+ &lt;div id=&quot;{{slide.id}}-carousel&quot; class=&quot;carousel slide {{slide.class}}&quot;&gt;
+     &lt;!-- Indicators --&gt;
+     &lt;ol class=&quot;carousel-indicators&quot;&gt;
+         {{# slide.blocks }}
+         &lt;li data-target=&quot;#{{slide.id}}-carousel&quot; data-slide-to=&quot;{{num}}&quot; class=&quot;{{class}}&quot;&gt;&lt;/li&gt;
+         {{/ slide.blocks }}
+     &lt;/ol&gt;
+     &lt;!-- Wrapper for slides --&gt;
+     &lt;div class=&quot;carousel-inner&quot;&gt;
+         {{# slide.blocks }}
+         &lt;div class=&quot;item {{class}}&quot;&gt;
+             &lt;img src=&quot;{{img}}&quot; alt=&quot;{{alt}}&quot;&gt;
+             &lt;div class=&quot;carousel-caption&quot;&gt;{{{ content }}}&lt;/div&gt;
+         &lt;/div&gt;
+         {{/ slide.blocks }}
+     &lt;/div&gt;
+     &lt;!-- Controls --&gt;
+     &lt;a class=&quot;left carousel-control&quot; href=&quot;#{{slide.id}}-carousel&quot; data-slide=&quot;prev&quot;&gt;&amp;lsaquo;&lt;/a&gt;
+     &lt;a class=&quot;right carousel-control&quot; href=&quot;#{{slide.id}}-carousel&quot; data-slide=&quot;next&quot;&gt;&amp;rsaquo;&lt;/a&gt;
+ &lt;/div&gt;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="span12" id="slide-34" style="background:;">
+  <hgroup>
+    <h2>Carousel</h2>
+  </hgroup>
+  <article data-timings="">
+    
+
+<div id="slide-34-carousel" class="carousel slide span12">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#slide-34-carousel" data-slide-to="1" class="active"></li>
+        <li data-target="#slide-34-carousel" data-slide-to="2" class=""></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="assets/img/apply.svg" alt="">
+            <div class="carousel-caption"><p>Image 1</p>
+</div>
+        </div>
+        <div class="item ">
+            <img src="assets/img/split.svg" alt="">
+            <div class="carousel-caption"><p>Image 2</p>
+</div>
+        </div>
+    </div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#slide-34-carousel" data-slide="prev">&lsaquo;</a>
+    <a class="right carousel-control" href="#slide-34-carousel" data-slide="next">&rsaquo;</a>
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-35" style="background:;">
+  <hgroup>
+    <h2>Vcenter layout</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>vcenter layout presents content in the slide center.</p>
+
+<p>Use vcenter layout as follows</p>
+
+<pre><code>---&amp;vcenter
+</code></pre>
+
+<p>or</p>
+
+<pre><code>---{tpl: vcenter}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-36">
+<hgroup>
+  
+</hgroup>
+<article class = 'flexbox vcenter'>
+<p><q>Slide contents</q></p>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="smaller" id="slide-37" style="background:;">
+  <hgroup>
+    <h2>Two columns Layout</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Two columns layout presents content distributed in two columns.</p>
+
+<p>Use layout as follows</p>
+
+<pre><code>---&amp;twocol w1:40% w2:60%
+
+## Using twocol layout
+
+This slide has two columns
+
+*** =left
+
+- point 1
+- point 2
+- point 3
+
+*** =right
+
+- point 1
+- point 2
+- point 3
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-38" style="background:;">
+  <hgroup>
+    <h2>Using twocol layout</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This slide has two columns</p>
+
+<div style='float:left;width:48%;' class='centered'>
+  <ul>
+<li>point 1</li>
+<li>point 2</li>
+<li>point 3</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <ul>
+<li>point 1</li>
+<li>point 2</li>
+<li>point 3</li>
+</ul>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue dark" id="slide-39" style="background:;">
+  <hgroup>
+    <h1>Playing with code</h1>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-40" style="background:;">
+  <hgroup>
+    <h2>Code hightlighting</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>We want that our code blocks look good. Syntax highlighting let us to make code clear and understable.</p>
+
+<p>Usage:</p>
+
+<pre><code>```&lt;language&gt;
+... code
+```
+</code></pre>
+
+<p><em>Note that knitr converts <code>{&lt;language_name&gt; ...}</code> to <code>&lt;language_name&gt;</code> but the
+language name in knitr corresponds to the engine that executes the code but
+does not have to correspond to the name used by hightlight.js.</em></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-41" style="background:;">
+  <hgroup>
+    <h2>Using Hightlight.js</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Highlight.js is a syntax highlighter written in JavaScript. It works with pretty
+much any markup, doesn’t depend on any framework and has automatic language
+detection.</p>
+
+<p>Main features</p>
+
+<ul>
+<li>176 languages and 79 styles</li>
+<li>automatic language detection</li>
+<li>multi-language code highlighting</li>
+<li>available for node.js</li>
+<li>works with any markup</li>
+<li>compatible with any js framework</li>
+</ul>
+
+<p><a href="https://highlightjs.org/static/demo/">hightlight.js demo</a></p>
+
+<p><a href="http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html">CSS classes reference</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-42" style="background:;">
+  <hgroup>
+    <h2>Knitr</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The <a href="https://yihui.name/knitr/demo/engines/">knitr</a> package was designed based
+on the idea of “Literate Programming” (Knuth 1984), which allows you to
+intermingle program code with text in a source document.</p>
+
+<p>When knitr compiles a document, the program code (in code chunks) will
+be extracted and executed, and the program output will be displayed together
+with the original text in the output document.</p>
+
+<p>knitr support a lot of computer languages that implemented in [knitr language
+engines](<a href="https://yihui.name/knitr/demo/engines/**">https://yihui.name/knitr/demo/engines/**</a>.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="smaller" id="slide-43" style="background:;">
+  <hgroup>
+    <h2>Running bash scripts</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>```r
+# should exist
+Sys.which(&#39;bash&#39;)
+Sys.which(&#39;sh&#39;)
+```
+</code></pre>
+
+<p>Does <code>bash</code> work?</p>
+
+<pre><code>```bash
+echo hello world
+echo &#39;a b c&#39; | sed &#39;s/ /\|/g&#39;
+# number of lines
+awk &#39;END{print NR;}&#39; 027-engine-bash.Rmd
+```
+</code></pre>
+
+<p>How about <code>sh</code>?</p>
+
+<pre><code>```sh
+# run wc on all engine examples
+ls | grep engine | head -n8 | xargs wc
+```
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue dark" id="slide-44" style="background:;">
+  <hgroup>
+    <h1>Recipes</h1>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-45" style="background:;">
+  <hgroup>
+    <h2>Section</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="md">---{class: [segue, dark]}
+
+## Section name
+</code></pre>
+
+<pre><code class="md">---{class: segue, bg: green}
+
+## Section name
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-46" style="background:;">
+  <hgroup>
+    <h2>Table</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="md">## This is a table
+
+| **Variable**    | **Description**                       |
+|-----------------|---------------------------------------|
+| `slide.title`   | The title of the slide with no markup |
+| `slide.header`  | The title of the slide with markup    |
+| `slide.level`   | The title header level (h1 - h6)      |
+| `slide.content` | The contents of the slide sans header |
+| `slide.html`    | The contents of the slide with header |
+| `slide.num`     | The number of the slide               |
+| `slide.id`      | The id assigned to the slide          |
+| `slide.class`   | The class assigned to the slide       |
+| `slide.bg`      | The background assigned to the slide  |
+| `slide.myblock` | The slide block named myblock         |
+| `slide.blocks`  | The slide blocks which are not named  |
+| `slide.rendered`| The rendered slide                    |
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="green" id="slide-47" style="background:;">
+  <hgroup>
+    <h2>Changing page number color</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="md">---{class: green}
+
+## Slide Title
+
+Slide Content
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-48" style="background:;">
+  <hgroup>
+    <h2>Corner banner: <code>example</code> class</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="html">&lt;a class=&#39;example&#39; href=&quot;http://your.url&quot;&gt;click here&lt;/a&gt;
+
+## Slide Title
+
+Slide content
+</code></pre>
+
+<p><a class='example' href="http://goyoambrosio.com">click here</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-49" style="background:;">
+  <hgroup>
+    <h2>Corner banner: <code>definition</code> class</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="html">&lt;a class=&#39;definition&#39; href=&quot;http://your.url&quot;&gt;click here&lt;/a&gt;
+
+## Slide Title
+
+Slide content
+</code></pre>
+
+<p><a class='definition' href="http://goyoambrosio.com">click here</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="smaller" id="slide-50" style="background:;">
+  <hgroup>
+    <h2>Image inclusion</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>To include an image in your slide you must insert html code as follows:</p>
+
+<pre><code>&lt;img style=&#39;margin-top: 5px&#39; class=&quot;center&quot; src=&#39;assets/img/slide_properties.svg&#39; width=500px&gt;&lt;/img&gt; 
+</code></pre>
+
+<p><img class="center" src='assets/img/slide_properties.svg' width=500px></img> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-51" style="background:;">
+  <article data-timings="">
+    <p>Also sometimes you will find the following code</p>
+
+<pre><code>&lt;iframe src=&#39;assets/img/slidify_banner.png&#39;&gt;&lt;/iframe&gt;
+</code></pre>
+
+<iframe src='assets/img/slidify_banner.png'></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-52" style="background:;">
+  <hgroup>
+    <h2>Quoted text</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Use <code>&lt;q&gt;...&lt;/q&gt;</code> html tags</p>
+
+<pre><code>&lt;q&gt; Slidify helps __create__, customize and share, elegant, dynamic and ...&lt;/q&gt;
+</code></pre>
+
+<p><q> Slidify helps <strong>create</strong>, customize and share, elegant, dynamic and interactive HTML5 documents using R Markdown.</q></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-53" style="background:;">
+  <hgroup>
+    <h2>Inserting text file content</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Sometimes you&#39;ll need to include raw code or text in your slide.</p>
+
+<p>You can to create a text raw file and insert it as follows</p>
+
+<pre><code> ---{class: RAW}
+
+ ## Slide
+
+ ``` {r results = &#39;asis&#39;, echo = F}
+ writeLines(paste(&#39;\t&#39;, readLines(&#39;assets/includes/myfile.txt&#39;)))
+ ```
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-54" style="background:;">
+  <hgroup>
+    <h2>Slide with custom background</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Two options:</p>
+
+<pre><code>---{bg:url(assets/img/&lt;my_image_file&gt;)}
+</code></pre>
+
+<p>or</p>
+
+<pre><code>---{id:custbg}
+
+## Slide with custom background
+
+&lt;style&gt;
+#custbg {
+  background-image:url(assets/img/&lt;my_image_file&gt;); 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+&lt;/style&gt;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-55" style="background:;">
+  <hgroup>
+    <h2>Presenter display and presenter notes</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>You can define speaker notes within any slide by adding the line <code>*** =pnotes</code>
+before it. Here is an example of a slide with speaker notes.</p>
+
+<p>You can view speaker notes by pressing the key <code>p</code> which acts as a toggle and
+automatically opens the presenter view. </p>
+
+<p>For <code>io2012</code>, you need to add <code>?presentme=true</code> to the presentation url, which
+will then open the presenter view.</p>
+
+<p>You can also include an image in the presenter display using markdown syntax,
+e.g.
+<code>![](http://codingsomething.files.wordpress.com/2013/02/screenshot.png?w=652)</code></p>
+
+<pre><code>*** =pnotes
+Presenter notes
+![](http://codingsomething.files.wordpress.com/2013/02/screenshot.png?w=652)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+  <aside class="note" id="">
+    <section>
+      <p>Presenter notes<br>
+<img src="http://codingsomething.files.wordpress.com/2013/02/screenshot.png?w=652" alt=""></p>
+
+    </section>
+  </aside>
+</slide>
+
+<slide class="" id="slide-56" style="background:;">
+  <hgroup>
+    <h2>Comment out a slide</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Change </p>
+
+<pre><code>---
+Slide 1 content
+---
+Slide 2 content
+---
+</code></pre>
+
+<p>by</p>
+
+<pre><code>---
+&lt;!--
+Slide 1 content
+--&gt;
+Slide 2 content
+---
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="stackedit" style="background:;">
+  <hgroup>
+    <h2>Using <code>iframe</code></h2>
+  </hgroup>
+  <article data-timings="">
+    <p><iframe src = 'https://stackedit.io' height='600px'></iframe></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue dark" id="slide-58" style="background:;">
+  <hgroup>
+    <h1>CSS related</h1>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-59" style="background:;">
+  <hgroup>
+    <h2>Changing background in all slides at once</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Include this in your <code>/assets/css/mycss.css</code>:</p>
+
+<pre><code class="css">slides &gt; slide {
+  background: #hex !important;
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="smaller" id="slide-60" style="background:;">
+  <hgroup>
+    <h2>Changing the font type on slides</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="css">@import url(http://fonts.googleapis.com/css?family=Baumans);
+
+.title-slide hgroup &gt; h1{
+font-family: &#39;Baumans&#39;, cursive;
+}
+
+.title-slide hgroup &gt; h2{
+  font-family: &#39;Oswald&#39;, &#39;Calibri&#39;, sans-serif;
+}
+
+/* Fonts and Spacing */
+article p, article li, article li.build, section p, section li{
+  font-family: &#39;Open Sans&#39;,&#39;Helvetica&#39;, &#39;Crimson Text&#39;, &#39;Garamond&#39;,  &#39;Palatino&#39;, sans-serif;
+  text-align: justify;
+  font-size:22px;
+  line-height: 1.5em;
+  color: #AA7139;
+}
+
+...
+
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+  <aside class="note" id="">
+    <section>
+      <pre><code class="css">@import url(http://fonts.googleapis.com/css?family=Baumans);
+
+.title-slide hgroup &gt; h1{
+font-family: &#39;Baumans&#39;, cursive;
+}
+
+.title-slide hgroup &gt; h2{
+  font-family: &#39;Oswald&#39;, &#39;Calibri&#39;, sans-serif;
+}
+
+/* Fonts and Spacing */
+article p, article li, article li.build, section p, section li{
+  font-family: &#39;Open Sans&#39;,&#39;Helvetica&#39;, &#39;Crimson Text&#39;, &#39;Garamond&#39;,  &#39;Palatino&#39;, sans-serif;
+  text-align: justify;
+  font-size:22px;
+  line-height: 1.5em;
+  color: #AA7139;
+}
+
+slide:not(.segue) h2{
+  font-family: &#39;Calibri&#39;, Arial, sans-serif;
+  font-size: 52px;
+  font-style: normal;
+  font-weight: bold;
+  text-transform: normal;
+  letter-spacing: -2px;
+  line-height: 1.2em;
+  color: #AA9A39;
+}
+
+/* Reduce Space between Title and Body */
+slides &gt; slide &gt; hgroup + article {
+  margin-top: 15px;
+}
+
+slides &gt; slide {
+    background: #303E73;
+}
+
+.title-slide {
+  background-color: #303E73; /* #EDE0CF; ; #CA9F9D*/
+  /* background-image:url(http://goo.gl/EpXln); */
+}
+
+.title-slide hgroup &gt; h1, 
+.title-slide hgroup &gt; h2 {
+  color: #AA7139 ;
+}
+
+</code></pre>
+
+    </section>
+  </aside>
+</slide>
+
+<slide class="segue dark" id="slide-61" style="background:;">
+  <hgroup>
+    <h1>Other stuff</h1>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-62" style="background:;">
+  <hgroup>
+    <h2>Tutorials and resources</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><a href="http://slidify.github.io/workshops/tutorials/01">Introduction</a></li>
+<li><a href="http://slidify.github.io/workshops/tutorials/02">Frameworks</a></li>
+<li><a href="http://slidify.github.io/workshops/tutorials/03">Layouts</a></li>
+<li><a href="http://slidify.github.io/workshops/tutorials/04">Widgets</a></li>
+<li><a href="https://github.com/ramnathv/slidify/wiki/Page-Properties">Slidify on GitHub</a></li>
+<li><a href="https://github.com/ramnathv/slidify/wiki/Page-Properties">Ramnath Vaidyanathan on Github</a></li>
+<li><a href="http://slidify.org/">Slidify.org</a></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='What is Slidify'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Set up your workspace'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Things you need'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='How to install R'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='How to install RStudio'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='How to install Emacs and Spacemacs'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='How to install ESS and polymode major modes for Emacs'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='How to install devtools'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='How to install slidify'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Create a new Deck'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Add version control with Git'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Upload the new repository to BitBucket or GitHub'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Cloning your repo'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Editing with Emacs and RStudio'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Slidify it !'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='Edit slides'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='index.Rmd = YAML + R Markdown'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='How YAML looks'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='Slides'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='Blocks'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='NA'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Slide Customization'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='Slide customization'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='Properties'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='Slide properties'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='Slide properties table'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='Slide to parse'>
+         28
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='Parsed slide'>
+         29
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=30 title='Layouts'>
+         30
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=31 title='About layouts'>
+         31
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=32 title='Creating a layout'>
+         32
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=33 title='Carousel layout'>
+         33
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=34 title='Carousel'>
+         34
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=35 title='Vcenter layout'>
+         35
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=36 title='NA'>
+         36
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=37 title='Two columns Layout'>
+         37
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=38 title='Using twocol layout'>
+         38
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=39 title='Playing with code'>
+         39
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=40 title='Code hightlighting'>
+         40
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=41 title='Using Hightlight.js'>
+         41
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=42 title='Knitr'>
+         42
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=43 title='Running bash scripts'>
+         43
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=44 title='Recipes'>
+         44
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=45 title='Section'>
+         45
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=46 title='Table'>
+         46
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=47 title='Changing page number color'>
+         47
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=48 title='Corner banner: <code>example</code> class'>
+         48
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=49 title='Corner banner: <code>definition</code> class'>
+         49
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=50 title='Image inclusion'>
+         50
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=51 title='NA'>
+         51
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=52 title='Quoted text'>
+         52
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=53 title='Inserting text file content'>
+         53
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=54 title='Slide with custom background'>
+         54
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=55 title='Presenter display and presenter notes'>
+         55
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=56 title='Comment out a slide'>
+         56
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=57 title='Using <code>iframe</code>'>
+         57
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=58 title='CSS related'>
+         58
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=59 title='Changing background in all slides at once'>
+         59
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=60 title='Changing the font type on slides'>
+         60
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=61 title='Other stuff'>
+         61
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=62 title='Tutorials and resources'>
+         62
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  <script src="libraries/widgets/bootstrap/js/bootstrap.min.js"></script>
+<script src="libraries/widgets/bootstrap/js/bootbox.min.js"></script>
+
+  <script>  
+  $(function (){ 
+    $("#example").popover(); 
+    $("[rel='tooltip']").tooltip(); 
+  });  
+  </script>  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
