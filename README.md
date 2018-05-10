@@ -1,4 +1,4 @@
-![slidify_logo](http://goyoambrosio.com/SlidifyTutorial/assets/img/goyologo.png) 
+<img src="http://goyoambrosio.com/SlidifyTutorial/assets/img/goyologo.png" width=100px>
 
 # Slidify Tutorial
 
