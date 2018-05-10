@@ -1041,6 +1041,8 @@ by
 
 --- #stackedit
 
+## Using `iframe`
+
  <iframe src = 'https://stackedit.io' height='600px'></iframe>
 
 ---{class: [segue, dark]}
