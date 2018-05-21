@@ -1,7 +1,7 @@
 ---
 title       : Slidify 
 subtitle    : A little bit more sysadmin oriented tutorial
-author      : Gregorio Ambrosio
+author      : Goyo Ambrosio
 job         : Apr. 17 2018
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
@@ -1159,6 +1159,13 @@ slides > slide {
 6. [Ramnath Vaidyanathan on Github](https://github.com/ramnathv/slidify/wiki/Page-Properties)
 7. [Slidify.org](http://slidify.org/)
 
+--- {
+ tpl: thankyou,
+ social: [{title: www, href: "https://goyoambrosio.com"}, {title: e-mail, href: "mailto:contact@goyoambrosio.com"}]
+}
 
+## Thank You
+
+For more information you can contact.
 
 
