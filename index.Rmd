@@ -2,7 +2,7 @@
 title       : Slidify 
 subtitle    : A little bit more sysadmin oriented tutorial
 author      : Goyo Ambrosio
-job         : Apr. 17 2018
+job         : Jul. 18 2018
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : zenburn       # {zenburn, tomorrow, solarized-dark, ...}
@@ -160,10 +160,10 @@ edit the `source.list` file
 sudo vim /etc/apt/sources.list
 ```
 
-and add the corresponding source to your operating system version [Ubuntu 16.04+|17.10+]
+and add the corresponding source to your operating system version [Ubuntu 16.04|17.10|18.04]
 
 ```sh
-deb https://cloud.r-project.org/bin/linux/ubuntu [xenial|artful]/
+deb https://cloud.r-project.org/bin/linux/ubuntu [xenial|artful|bionic]-cran35/
 ```
 
 Finally, to install the complete R system, run:
@@ -179,11 +179,11 @@ sudo apt install r-base
 
 [Download](https://www.rstudio.com/products/rstudio/download/) RStudio.
 
-Install it from command prompt 
+Install it (`rstudio-xenial-1.1.453-amd64.deb` in this case) from command prompt 
 
-```sh
+```shell
 # For Debian based
-sudo dpkg -i rstudio-xenial-1.1.447-amd64.deb
+sudo dpkg -i rstudio-xenial-1.1.453-amd64.deb
 # install dependencies
 sudo apt install -f
 ```
@@ -275,10 +275,11 @@ pkgs <- c("slidify", "slidifyLibraries", "rCharts")
 devtools::install_github(pkgs, "ramnathv")
 ```
 
-As an alternative http://slidify.github.io recommends installing the `dev` version of the package
+If you are brave, <http://slidify.github.io> recommends installation of the
+package `dev` version but I don't recommend it.
 
 ```r
-install_github(pkgs, 'ramnathv', ref = 'dev')
+devtools::install_github(pkgs, 'ramnathv', ref = 'dev')
 ```
 
 Now you are ready to create your first slidify presentation.

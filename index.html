@@ -58,7 +58,7 @@
   <hgroup class="auto-fadein">
     <h1>Slidify</h1>
     <h2>A little bit more sysadmin oriented tutorial</h2>
-    <p>Goyo Ambrosio<br/>Apr. 17 2018</p>
+    <p>Goyo Ambrosio<br/>Jul. 18 2018</p>
   </hgroup>
     <a href="https://github.com/goyoambrosio/SlidifyTutorial/zipball/gh-pages" class="example">
      Download
@@ -232,9 +232,9 @@ the key to your system run:</p>
 <pre><code class="sh">sudo vim /etc/apt/sources.list
 </code></pre>
 
-<p>and add the corresponding source to your operating system version [Ubuntu 16.04+|17.10+]</p>
+<p>and add the corresponding source to your operating system version [Ubuntu 16.04|17.10|18.04]</p>
 
-<pre><code class="sh">deb https://cloud.r-project.org/bin/linux/ubuntu [xenial|artful]/
+<pre><code class="sh">deb https://cloud.r-project.org/bin/linux/ubuntu [xenial|artful|bionic]-cran35/
 </code></pre>
 
 <p>Finally, to install the complete R system, run:</p>
@@ -254,10 +254,10 @@ sudo apt install r-base
   <article data-timings="">
     <p><a href="https://www.rstudio.com/products/rstudio/download/">Download</a> RStudio.</p>
 
-<p>Install it from command prompt </p>
+<p>Install it (<code>rstudio-xenial-1.1.453-amd64.deb</code> in this case) from command prompt </p>
 
-<pre><code class="sh"># For Debian based
-sudo dpkg -i rstudio-xenial-1.1.447-amd64.deb
+<pre><code class="shell"># For Debian based
+sudo dpkg -i rstudio-xenial-1.1.453-amd64.deb
 # install dependencies
 sudo apt install -f
 </code></pre>
@@ -361,9 +361,10 @@ package. </p>
 devtools::install_github(pkgs, &quot;ramnathv&quot;)
 </code></pre>
 
-<p>As an alternative <a href="http://slidify.github.io">http://slidify.github.io</a> recommends installing the <code>dev</code> version of the package</p>
+<p>If you are brave, <a href="http://slidify.github.io">http://slidify.github.io</a> recommends installation of the
+package <code>dev</code> version but I don&#39;t recommend it.</p>
 
-<pre><code class="r">install_github(pkgs, &#39;ramnathv&#39;, ref = &#39;dev&#39;)
+<pre><code class="r">devtools::install_github(pkgs, &#39;ramnathv&#39;, ref = &#39;dev&#39;)
 </code></pre>
 
 <p>Now you are ready to create your first slidify presentation.</p>
