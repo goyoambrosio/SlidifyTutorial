@@ -252,6 +252,7 @@ Now run R as `sudo` and install the package
 $ sudo -i R
 ```
 
+
 ```r
 > install.packages('devtools')
 ```
@@ -399,6 +400,14 @@ Changes made to the edited files will be updated in real time both in Emacs and 
 ```r
 slidify("index.Rmd")
 browseURL("index.html")
+```
+
+and don't forget to update your git repository
+
+``` shell
+git status
+git commit -am "Updating my repository"
+git push
 ```
 
 --- .segue bg:grey
@@ -814,8 +823,9 @@ Main features
 
 ## Knitr
 
-The [knitr](https://yihui.name/knitr/demo/engines/) package was designed based
-on the idea of “Literate Programming” (Knuth 1984), which allows you to
+The [knitr](https://yihui.name/knitr/) package was designed based on the idea of
+[“Literate Programming” (Knuth
+1984)](http://www.literateprogramming.com/knuthweb.pdf), which allows you to
 intermingle program code with text in a source document.
 
 When knitr compiles a document, the program code (in code chunks) will
@@ -823,7 +833,7 @@ be extracted and executed, and the program output will be displayed together
 with the original text in the output document.
 
 knitr support a lot of computer languages that implemented in [knitr language
-engines](https://yihui.name/knitr/demo/engines/**.
+engines](https://yihui.name/knitr/demo/engines/).
 
 ---{class: smaller}
 
