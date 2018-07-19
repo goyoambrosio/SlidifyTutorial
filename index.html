@@ -1099,10 +1099,6 @@ This slide has two columns
 ```
 </code></pre>
 
-<p><em>Note that knitr converts <code>{&lt;language_name&gt; ...}</code> to <code>&lt;language_name&gt;</code> but the
-language name in knitr corresponds to the engine that executes the code but
-does not have to correspond to the name used by hightlight.js.</em></p>
-
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -1149,8 +1145,21 @@ intermingle program code with text in a source document.</p>
 be extracted and executed, and the program output will be displayed together
 with the original text in the output document.</p>
 
-<p>knitr support a lot of computer languages that implemented in <a href="https://yihui.name/knitr/demo/engines/">knitr language
+<!-- Example of using triple backticks by means of unicode characters coded as decimal inside markdown. --> 
+
+<!-- <code></code> html tags are used to hightlight triple backticks --> 
+
+<p>For instance, for an R Markdown (Rmd) document, we write code chunks between
+<code>&#0096;&#0096;&#0096;{r}</code> and <code>&#0096;&#0096;&#0096;</code> and inline R code
+is written in <code>&#0096;r &lt;expr&gt;&#0096;</code>. Chunk options are written
+before the closing brace in the chunk header.</p>
+
+<p>knitr support a lot of computer languages that are implemented in <a href="https://yihui.name/knitr/demo/engines/">knitr language
 engines</a>.</p>
+
+<p><em>Note that knitr converts <code>{&lt;language_name&gt; ...}</code> to <code>&lt;language_name&gt;</code> but the
+language name in knitr corresponds to the engine that executes the code but
+does not have to correspond to the name used by hightlight.js.</em></p>
 
   </article>
   <!-- Presenter Notes -->
