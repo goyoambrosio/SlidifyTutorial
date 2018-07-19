@@ -843,7 +843,7 @@ engines](https://yihui.name/knitr/demo/engines/).
 language name in knitr corresponds to the engine that executes the code but
 does not have to correspond to the name used by hightlight.js.*
 
-
+<!--
 ---{class: smaller}
 
 ## Running bash scripts
@@ -872,6 +872,7 @@ How about `sh`?
     # run wc on all engine examples
     ls | grep engine | head -n8 | xargs wc
     ```
+-->
 
 ---{class: [segue,dark]}
 

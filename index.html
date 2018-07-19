@@ -1161,45 +1161,42 @@ engines</a>.</p>
 language name in knitr corresponds to the engine that executes the code but
 does not have to correspond to the name used by hightlight.js.</em></p>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+<!--
+---{class: smaller}
 
-<slide class="smaller" id="slide-43" style="background:;">
-  <hgroup>
-    <h2>Running bash scripts</h2>
-  </hgroup>
-  <article data-timings="">
-    <pre><code>```r
-# should exist
-Sys.which(&#39;bash&#39;)
-Sys.which(&#39;sh&#39;)
-```
-</code></pre>
+## Running bash scripts
 
-<p>Does <code>bash</code> work?</p>
+    
+    ```r
+    # should exist
+    Sys.which('bash')
+    Sys.which('sh')
+    ```
 
-<pre><code>```bash
-echo hello world
-echo &#39;a b c&#39; | sed &#39;s/ /\|/g&#39;
-# number of lines
-awk &#39;END{print NR;}&#39; 027-engine-bash.Rmd
-```
-</code></pre>
+Does `bash` work?
 
-<p>How about <code>sh</code>?</p>
+    
+    ```bash
+    echo hello world
+    echo 'a b c' | sed 's/ /\|/g'
+    # number of lines
+    awk 'END{print NR;}' 027-engine-bash.Rmd
+    ```
 
-<pre><code>```sh
-# run wc on all engine examples
-ls | grep engine | head -n8 | xargs wc
-```
-</code></pre>
+How about `sh`?
+
+    
+    ```sh
+    # run wc on all engine examples
+    ls | grep engine | head -n8 | xargs wc
+    ```
+-->
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue dark" id="slide-44" style="background:;">
+<slide class="segue dark" id="slide-43" style="background:;">
   <hgroup>
     <h1>Recipes</h1>
   </hgroup>
@@ -1209,7 +1206,7 @@ ls | grep engine | head -n8 | xargs wc
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-45" style="background:;">
+<slide class="" id="slide-44" style="background:;">
   <hgroup>
     <h2>Section</h2>
   </hgroup>
@@ -1228,7 +1225,7 @@ ls | grep engine | head -n8 | xargs wc
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-46" style="background:;">
+<slide class="" id="slide-45" style="background:;">
   <hgroup>
     <h2>Table</h2>
   </hgroup>
@@ -1255,7 +1252,7 @@ ls | grep engine | head -n8 | xargs wc
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="green" id="slide-47" style="background:;">
+<slide class="green" id="slide-46" style="background:;">
   <hgroup>
     <h2>Changing page number color</h2>
   </hgroup>
@@ -1271,7 +1268,7 @@ Slide Content
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-48" style="background:;">
+<slide class="" id="slide-47" style="background:;">
   <hgroup>
     <h2>Corner banner: <code>example</code> class</h2>
   </hgroup>
@@ -1289,7 +1286,7 @@ Slide content
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-49" style="background:;">
+<slide class="" id="slide-48" style="background:;">
   <hgroup>
     <h2>Corner banner: <code>definition</code> class</h2>
   </hgroup>
@@ -1307,7 +1304,7 @@ Slide content
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="smaller" id="slide-50" style="background:;">
+<slide class="smaller" id="slide-49" style="background:;">
   <hgroup>
     <h2>Image inclusion</h2>
   </hgroup>
@@ -1323,7 +1320,7 @@ Slide content
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-51" style="background:;">
+<slide class="" id="slide-50" style="background:;">
   <article data-timings="">
     <p>Also sometimes you will find the following code</p>
 
@@ -1336,7 +1333,7 @@ Slide content
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-52" style="background:;">
+<slide class="" id="slide-51" style="background:;">
   <hgroup>
     <h2>Quoted text</h2>
   </hgroup>
@@ -1352,7 +1349,7 @@ Slide content
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-53" style="background:;">
+<slide class="" id="slide-52" style="background:;">
   <hgroup>
     <h2>Inserting text file content</h2>
   </hgroup>
@@ -1374,7 +1371,7 @@ Slide content
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-54" style="background:;">
+<slide class="" id="slide-53" style="background:;">
   <hgroup>
     <h2>Slide with custom background</h2>
   </hgroup>
@@ -1404,7 +1401,7 @@ Slide content
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-55" style="background:;">
+<slide class="" id="slide-54" style="background:;">
   <hgroup>
     <h2>Presenter display and presenter notes</h2>
   </hgroup>
@@ -1438,7 +1435,7 @@ Presenter notes
   </aside>
 </slide>
 
-<slide class="" id="slide-56" style="background:;">
+<slide class="" id="slide-55" style="background:;">
   <hgroup>
     <h2>Comment out a slide</h2>
   </hgroup>
@@ -1477,7 +1474,7 @@ Slide 2 content
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue dark" id="slide-58" style="background:;">
+<slide class="segue dark" id="slide-57" style="background:;">
   <hgroup>
     <h1>CSS related</h1>
   </hgroup>
@@ -1487,7 +1484,7 @@ Slide 2 content
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-59" style="background:;">
+<slide class="" id="slide-58" style="background:;">
   <hgroup>
     <h2>Changing background in all slides at once</h2>
   </hgroup>
@@ -1503,7 +1500,7 @@ Slide 2 content
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="smaller" id="slide-60" style="background:;">
+<slide class="smaller" id="slide-59" style="background:;">
   <hgroup>
     <h2>Changing the font type on slides</h2>
   </hgroup>
@@ -1590,7 +1587,7 @@ slides &gt; slide {
   </aside>
 </slide>
 
-<slide class="segue dark" id="slide-61" style="background:;">
+<slide class="segue dark" id="slide-60" style="background:;">
   <hgroup>
     <h1>Other stuff</h1>
   </hgroup>
@@ -1600,7 +1597,7 @@ slides &gt; slide {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-62" style="background:;">
+<slide class="" id="slide-61" style="background:;">
   <hgroup>
     <h2>Tutorials and resources</h2>
   </hgroup>
@@ -1619,7 +1616,7 @@ slides &gt; slide {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="thank-you-slide segue nobackground" id="slide-63">
+<slide class="thank-you-slide segue nobackground" id="slide-62">
     <aside class="gdbar right"><img src="assets/img/goyologo.png"></aside>
     <article class="flexbox vleft auto-fadein">
         <h2>Thank You</h2>
@@ -1890,128 +1887,122 @@ slides &gt; slide {
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=43 title='Running bash scripts'>
+        data-slide=43 title='Recipes'>
          43
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=44 title='Recipes'>
+        data-slide=44 title='Section'>
          44
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=45 title='Section'>
+        data-slide=45 title='Table'>
          45
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=46 title='Table'>
+        data-slide=46 title='Changing page number color'>
          46
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=47 title='Changing page number color'>
+        data-slide=47 title='Corner banner: <code>example</code> class'>
          47
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=48 title='Corner banner: <code>example</code> class'>
+        data-slide=48 title='Corner banner: <code>definition</code> class'>
          48
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=49 title='Corner banner: <code>definition</code> class'>
+        data-slide=49 title='Image inclusion'>
          49
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=50 title='Image inclusion'>
+        data-slide=50 title='NA'>
          50
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=51 title='NA'>
+        data-slide=51 title='Quoted text'>
          51
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=52 title='Quoted text'>
+        data-slide=52 title='Inserting text file content'>
          52
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=53 title='Inserting text file content'>
+        data-slide=53 title='Slide with custom background'>
          53
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=54 title='Slide with custom background'>
+        data-slide=54 title='Presenter display and presenter notes'>
          54
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=55 title='Presenter display and presenter notes'>
+        data-slide=55 title='Comment out a slide'>
          55
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=56 title='Comment out a slide'>
+        data-slide=56 title='Using <code>iframe</code>'>
          56
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=57 title='Using <code>iframe</code>'>
+        data-slide=57 title='CSS related'>
          57
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=58 title='CSS related'>
+        data-slide=58 title='Changing background in all slides at once'>
          58
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=59 title='Changing background in all slides at once'>
+        data-slide=59 title='Changing the font type on slides'>
          59
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=60 title='Changing the font type on slides'>
+        data-slide=60 title='Other stuff'>
          60
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=61 title='Other stuff'>
+        data-slide=61 title='Tutorials and resources'>
          61
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=62 title='Tutorials and resources'>
+        data-slide=62 title='Thank You'>
          62
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=63 title='Thank You'>
-         63
       </a>
     </li>
   </ul>
